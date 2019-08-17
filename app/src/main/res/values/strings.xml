@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Agricultural Stock Exchange</string>
     <string name="map_api_key">AIzaSyCbc2Y5AIwZ8uUeHRUXiozGN3CnpjKT0oI</string>
-    <string name="hand_break">Hand Break</string>
+    <string name="hand_break">Agricultural Stock Exchange</string>
     <string name="home">Home</string>
     <string name="notifications">Notifications</string>
     <string name="search">Search</string>

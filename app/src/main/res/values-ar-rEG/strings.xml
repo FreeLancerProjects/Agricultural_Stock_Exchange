@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">بورصه زراعيه</string>
     <string name="map_api_key">AIzaSyCbc2Y5AIwZ8uUeHRUXiozGN3CnpjKT0oI</string>
-    <string name="hand_break">هاند بريك</string>
+    <string name="hand_break">بورصه زراعيه</string>
     <string name="home">الرئيسية</string>
     <string name="notifications">الاشعارات</string>
     <string name="search">بحث</string>
