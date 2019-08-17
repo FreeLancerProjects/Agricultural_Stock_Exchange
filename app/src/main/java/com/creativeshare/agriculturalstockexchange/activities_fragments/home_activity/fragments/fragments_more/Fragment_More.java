@@ -90,7 +90,7 @@ public class Fragment_More extends Fragment {
             tv_en.setTextColor(getResources().getColor(R.color.white));
 
         } else {
-            arrow1.setRotation(180.0f);
+//            arrow1.setRotation(180.0f);
             arrow2.setRotation(180.0f);
             arrow3.setRotation(180.0f);
            // arrow4.setRotation(180.0f);
