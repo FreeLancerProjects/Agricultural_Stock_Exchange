@@ -1,0 +1,120 @@
+package com.creativeshare.agriculturalstockexchange.activities_fragments.ads_activity.activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.ads_activity.fragments.Fragment_Ads;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.ads_activity.fragments.Fragment_Adviersiment_Terms_Conditions;
+import com.creativeshare.agriculturalstockexchange.language.Language_Helper;
+import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+
+import java.util.Locale;
+
+import io.paperdb.Paper;
+
+import static android.app.Activity.RESULT_OK;
+
+public class AdsActivity extends AppCompatActivity {
+
+    private String cuurent_language;
+    private FragmentManager fragmentManager;
+    private int fragment_count=0;
+    private String adversiment_id;
+    private Fragment_Ads fragment_ads;
+    private Fragment_Adviersiment_Terms_Conditions fragment_adviersiment_terms_conditions;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(Language_Helper.updateResources(newBase,  Preferences.getInstance().getLanguage(newBase)));
+
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ads);
+        adversiment_id=getIntent().getStringExtra("adversiment_id");
+        Adversiment_Model.setId(adversiment_id);
+        initView();
+        if(savedInstanceState==null){
+            DisplayFragmentAds();
+        }
+
+
+    }
+    private void initView() {
+        fragmentManager = this.getSupportFragmentManager();
+        Paper.init(this);
+        cuurent_language = Paper.book().read("lang", Locale.getDefault().getLanguage());
+
+    }
+    public void DisplayFragmentAds()
+    {
+        fragment_count+=1;
+
+            fragment_ads = Fragment_Ads.newInstance();
+
+
+
+        if (fragment_ads.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_ads).commit();
+
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_ads, "fragment_ads").addToBackStack("fragment_ads").commit();
+
+        }
+
+    }
+
+    public void DisplayFragmentterms()
+    {
+        fragment_count+=1;
+        if (fragment_adviersiment_terms_conditions == null) {
+            fragment_adviersiment_terms_conditions = Fragment_Adviersiment_Terms_Conditions.newInstance();
+        }
+
+        if (fragment_adviersiment_terms_conditions.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_adviersiment_terms_conditions).commit();
+
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_adviersiment_terms_conditions, "fragment_adviersiment_terms_conditions").addToBackStack("fragment_adviersiment_terms_conditions").commit();
+
+        }
+
+    }
+
+
+    public void gotonext(Adversiment_Model adversiment_model) {
+if(fragment_ads!=null&&fragment_ads.isAdded()){
+    fragment_ads.gotonext(adversiment_model);
+}
+    }
+    public void onBackPressed() {
+        Back();    }
+
+    public void Back() {
+       if(fragment_count>1){
+fragment_count-=1;
+super.onBackPressed();
+       }
+       else {
+           Intent returnIntent = new Intent();
+           returnIntent.putExtra("result","-1");
+           setResult(RESULT_OK,returnIntent);
+           finish();
+       }
+
+    }
+
+    public void finish(String id_advertisement) {
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("result",id_advertisement);
+        setResult(RESULT_OK,returnIntent);
+        finish();
+    }
+}

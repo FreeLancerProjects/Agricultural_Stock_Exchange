@@ -1,0 +1,177 @@
+<resources>
+    <string name="app_name">Agricultural Stock Exchange</string>
+    <string name="map_api_key">AIzaSyCbc2Y5AIwZ8uUeHRUXiozGN3CnpjKT0oI</string>
+    <string name="hand_break">Hand Break</string>
+    <string name="home">Home</string>
+    <string name="notifications">Notifications</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
+    <string name="message">Message</string>
+    <string name="add_search_for_missing_car">Add  Lost Car</string>
+    <string name="application_commission">Application Commision </string>
+    <string name="about_hand_break">About App</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="my_profile">My Profile </string>
+    <string name="advertisment">Adversiment</string>
+    <string name="my_market">My Market</string>
+    <string name="follower_list"> Follower List </string>
+    <string name="favorite">Favorite</string>
+    <string name="log_out">Log Out</string>
+    <string name="language_setting">Language Setting </string>
+    <string name="code">code</string>
+    <string name="sign_up2">Create Account</string>
+    <string name="login">Login</string>
+    <string name="skip">Skip</string>
+    <string name="user_name">User name</string>
+    <string name="user_password">password</string>
+    <string name="user_email">Email</string>
+    <string name="user_phone">Phone</string>
+    <string name="register">Register</string>
+    <string name="si_su">Sign in or create a new account .</string>
+    <string name="new_user">Create new Account .</string>
+    <string name="cancel">Cancel</string>
+    <string name="suc"> Succes</string>
+    <string name="field_req">Field Required</string>
+    <string name="inv_email">Email InCorrect</string>
+    <string name="inc_em_pas">Email or Password InCorrect</string>
+    <string name="wait">Wait ...</string>
+    <string name="ok">Ok !</string>
+    <string name="email_exists">Email Exsits</string>
+    <string name="something">Error ! Check Internet connection</string>
+    <string name="add_adversiment">Add Adversiment</string>
+    <string name="the_manufacture_company">Manufacture Company</string>
+    <string name="continuation">Continuation</string>
+    <string name="apply_terms_and_conditions">Apply Terms and Conditions</string>
+    <string name="terms_and_conditions1"><a href="">Terms and Conditions</a></string>
+    <string name="advertisment_address"> Adversiment Title</string>
+    <string name="price">Price</string>
+    <string name="detials">Detials</string>
+    <string name="department">Department /</string>
+    <string name="user_exists">User Exsits</string>
+    <string name="location">Location / </string>
+    <string name="commercial_register">Commercial Register / </string>
+    <string name="address">Address / </string>
+    <string name="no_messages">No conversations</string>
+    <string name="name">Name</string>
+    <string name="type_a_message">Type Message ...</string>
+    <string name="delete">Delete !</string>
+    <string name="delete_conversations">Delete Conversations ?</string>
+    <string name="delete2">Delete</string>
+    <string name="back">Back</string>
+    <string name="messaging">Messaging</string>
+    <string name="member_since">Member since </string>
+    <string name="failed">Failed</string>
+    <string name="my_advertisment">My Adverimant</string>
+    <string name="upload">Upload piece Images</string>
+    <string name="perm_image_denied">Permision Images Deined</string>
+    <string name="complete_all">Commplete You Information</string>
+    <string name="used">Used</string>
+    <string name="news">New</string>
+    <string name="edit">Edit</string>
+    <string name="city">City</string>
+    <string name="add_comment">Add Comment</string>
+    <string name="follow_comment">=Follow Comments </string>
+    <string name="just_now">Just Now</string>
+    <string name="a_minute_ago">Minute Ago</string>
+    <string name="min">Minute</string>
+    <string name="an_hour_ago">An Hour Ago</string>
+    <string name="hs">Hour</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="day">ÙŠÙˆÙ…</string>
+    <string name="no_notification_found">No Notification Found</string>
+    <string name="select_language">select_language</string>
+    <string name="department2">Department</string>
+    <string name="type">Type</string>
+    <string name="model">Model</string>
+    <string name="color">color</string>
+    <string name="plate_number">Add Plate Number For Lost Car</string>
+    <string name="add">add</string>
+    <string name="near_to_me">near to me</string>
+    <string name="piece_number">piece number</string>
+    <string name="responsible_person">Name of the owner of the lost car</string>
+    <string name="insurance_car">insurance car</string>
+    <string name="residency_number">Residence Number / Identity Number</string>
+    <string name="Date_expire_residence">Date of expiry of residence / identity</string>
+    <string name="car_model">car model</string>
+    <string name="car_type">car type</string>
+    <string name="image_car">image car</string>
+    <string name="image_form">image form</string>
+    <string name="send">send</string>
+    <string name="select">select</string>
+    <string name="title">title</string>
+    <string name="upgrade">Upgrade to dealer</string>
+    <string name="market_name">market name</string>
+    <string name="piece_number_if_not_present_it_will_be_placed_0">piece_number If not present, it will be placed 0</string>
+    <string name="plate_number_if_not_present_it_will_be_placed_0">plate_number If not present, it will be placed 0</string>
+    <string name="insurance_type">insurance type</string>
+    <string name="comprehensive">comprehensive</string>
+    <string name="against_change">Against change</string>
+    <string name="offer">offer</string>
+    <string name="refues">refues</string>
+    <string name="accept">accept</string>
+    <string name="view_insurance_data">View insurance data</string>
+    <string name="name_of_the_owner_of_the_car">Name of the owner of the car</string>
+    <string name="available">InsuraceAvilable</string>
+    <string name="account_of_commission">Account of commission</string>
+    <string name="calculation_of_commission_value">Calculation of commission value :</string>
+    <string name="if_the_goods_are_sold_at_a_price">If the goods are sold at a price</string>
+    <string name="real_so">Real So</string>
+    <string name="details">Details :</string>
+    <string name="amount_payable">Amount payable</string>
+    <string name="site_commission_is_10_riyals">Site commission is </string>
+    <string name="the_value_added_tax_is_0_real">The value added tax is 0 Real</string>
+    <string name="the_site_commission_is_1_of_the_commodity_price">The site commission is 5% of the commodity price</string>
+    <string name="vat_is_5_of_the_site_commission">VAT is 5% of the site commission</string>
+    <string name="note_please_log_in_if_you_have_a_membership_on_the_site_even_if_you_have_a_discount_calculated_for_you">Note Please log in if you have a membership on the site even if you have a discount calculated for you</string>
+    <string name="_0">0</string>
+    <string name="real">real</string>
+    <string name="bank_accounts">Bank Accounts</string>
+    <string name="bank_name">Bank name</string>
+    <string name="account_iban">Account IBAN</string>
+    <string name="account_number">Account Number</string>
+    <string name="account_name">Account Name</string>
+    <string name="adversiment_detials">Adversiment detials</string>
+    <string name="lost_car_search">Lost Car Search</string>
+    <string name="lost_car">Lost Car</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="followers">Followers</string>
+    <string name="piece_name">Piece name</string>
+    <string name="upload_car_image">upload Car Images</string>
+    <string name="same_adversiment">Same Adversiment</string>
+    <string name="my_car">My Car</string>
+    <string name="i_found_it">I found it</string>
+    <string name="You_can_not_edit">You can not edit</string>
+    <string name="car_owner">Car owner Name</string>
+    <string-array name="models">
+        <item>Choose</item>
+
+        <item>2000</item>
+        <item>2001</item>
+        <item>2002</item>
+        <item>2003</item>
+        <item>2004</item>
+        <item>2005</item>
+        <item>2006</item>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+
+    </string-array>
+</resources>
