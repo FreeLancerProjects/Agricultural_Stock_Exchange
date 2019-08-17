@@ -31,20 +31,22 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.home_activity.activity.HomeActivity;
-import com.creativeshare.hand_break.models.Insuarce_Model;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.remote.Api;
-import com.creativeshare.hand_break.share.Common;
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.models.Insuarce_Model;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 import io.paperdb.Paper;

@@ -8,14 +8,15 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.home_activity.activity.HomeActivity;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Language;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Login;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Signup;
-import com.creativeshare.hand_break.language.Language_Helper;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.tags.Tags;
+
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Language;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Login;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.fragments.Fragment_Signup;
+import com.creativeshare.agriculturalstockexchange.language.Language_Helper;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.tags.Tags;
 
 import io.paperdb.Paper;
 

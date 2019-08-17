@@ -13,12 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.home_activity.activity.HomeActivity;
-import com.creativeshare.hand_break.models.Adversiment_Model;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.share.Common;
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 
 import java.util.Locale;
 

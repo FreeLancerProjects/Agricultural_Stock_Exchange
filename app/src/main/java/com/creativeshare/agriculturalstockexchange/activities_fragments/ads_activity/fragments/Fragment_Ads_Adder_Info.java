@@ -22,11 +22,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import com.creativeshare.agriculturalstockexchange.R;
 
 import com.creativeshare.agriculturalstockexchange.activities_fragments.ads_activity.activity.AdsActivity;
 import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
+import com.creativeshare.agriculturalstockexchange.models.Adversiting_Model;
+import com.creativeshare.agriculturalstockexchange.models.Catogry_Model;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;

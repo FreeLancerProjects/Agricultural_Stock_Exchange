@@ -21,17 +21,18 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.chat_activity.ChatActivity;
-import com.creativeshare.hand_break.adapters.UserSearchAdapter;
-import com.creativeshare.hand_break.language.Language_Helper;
-import com.creativeshare.hand_break.models.ChatUserModel;
-import com.creativeshare.hand_break.models.RoomIdModel;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.models.UserSearchDataModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.remote.Api;
-import com.creativeshare.hand_break.share.Common;
+
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.chat_activity.ChatActivity;
+import com.creativeshare.agriculturalstockexchange.adapters.UserSearchAdapter;
+import com.creativeshare.agriculturalstockexchange.language.Language_Helper;
+import com.creativeshare.agriculturalstockexchange.models.ChatUserModel;
+import com.creativeshare.agriculturalstockexchange.models.RoomIdModel;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.models.UserSearchDataModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 
 import java.util.ArrayList;
 import java.util.List;

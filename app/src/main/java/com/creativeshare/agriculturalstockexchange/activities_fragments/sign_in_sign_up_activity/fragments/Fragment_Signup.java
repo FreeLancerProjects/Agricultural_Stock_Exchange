@@ -19,12 +19,13 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.remote.Api;
-import com.creativeshare.hand_break.share.Common;
+
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 import com.mukesh.countrypicker.Country;
 import com.mukesh.countrypicker.CountryPicker;
 import com.mukesh.countrypicker.listeners.OnCountryPickerListener;

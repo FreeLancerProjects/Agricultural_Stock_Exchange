@@ -15,19 +15,20 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.home_activity.activity.HomeActivity;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.remote.Api;
-import com.creativeshare.hand_break.share.Common;
+
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 
 import java.io.IOException;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Callback;
 
 
 public class Fragment_Login extends Fragment {

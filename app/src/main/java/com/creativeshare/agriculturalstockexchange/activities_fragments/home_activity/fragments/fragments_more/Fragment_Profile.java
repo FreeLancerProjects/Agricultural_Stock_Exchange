@@ -19,16 +19,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.home_activity.activity.HomeActivity;
-import com.creativeshare.hand_break.adapters.Other_Adversiment_Adapter;
-import com.creativeshare.hand_break.models.Adversiment_Model;
-import com.creativeshare.hand_break.models.CityModel;
-import com.creativeshare.hand_break.models.UserModel;
-import com.creativeshare.hand_break.preferences.Preferences;
-import com.creativeshare.hand_break.remote.Api;
-import com.creativeshare.hand_break.share.Common;
-import com.creativeshare.hand_break.tags.Tags;
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.adapters.Other_Adversiment_Adapter;
+import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
+import com.creativeshare.agriculturalstockexchange.models.CityModel;
+import com.creativeshare.agriculturalstockexchange.models.UserModel;
+import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
+import com.creativeshare.agriculturalstockexchange.tags.Tags;
 import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.squareup.picasso.Picasso;
 

@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.creativeshare.hand_break.R;
-import com.creativeshare.hand_break.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
+import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import io.paperdb.Paper;

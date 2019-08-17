@@ -10,8 +10,11 @@ import android.widget.FrameLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.creativeshare.agriculturalstockexchange.R;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.sign_in_sign_up_activity.activity.Login_Activity;
 import com.creativeshare.agriculturalstockexchange.language.Language_Helper;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
+import com.creativeshare.agriculturalstockexchange.tags.Tags;
 
 
 public class SplashActivity extends AppCompatActivity {
