@@ -2,7 +2,7 @@ package com.creativeshare.agriculturalstockexchange.tags;
 
 public class Tags {
 
-    public static final String base_url = "http://hand-break.semicolonsoft.com/";
+    public static final String base_url = "http://borsa-zeraa.agaaar.com/";
     public static final String IMAGE_URL = base_url+"uploads/images/";
     public static final String IMAGE_URL_Detials = base_url+"uploads/images/thumbs/";
 
