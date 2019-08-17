@@ -28,7 +28,8 @@ public class Fragment_More extends Fragment {
     private HomeActivity homeActivity;
     private String cuurent_language;
     private ImageView im_log, arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8, arrow9, arrow10, arrow11;
-    private LinearLayout ll_logout, ll_terms, ll_about, ll_profile,ll_adversiment,ll_language,ll_addcar,ll_follow,ll_commission;
+    private LinearLayout ll_logout, ll_terms, ll_about, ll_profile,ll_adversiment,ll_language,ll_follow,ll_commission;
+//,ll_addcar
     private FrameLayout fr_arabic,fr_english;
     private TextView tv_ar,tv_en;
     private Preferences preferences;
@@ -55,7 +56,7 @@ public class Fragment_More extends Fragment {
         tv_ar=view.findViewById(R.id.tv_ar);
         tv_en=view.findViewById(R.id.tv_en);
         im_log = view.findViewById(R.id.im_log);
-        ll_addcar=view.findViewById(R.id.ll_addcar);
+        //ll_addcar=view.findViewById(R.id.ll_addcar);
         ll_terms = view.findViewById(R.id.ll_terms);
         ll_about = view.findViewById(R.id.ll_about);
         ll_profile = view.findViewById(R.id.ll_profile);
@@ -122,7 +123,7 @@ public class Fragment_More extends Fragment {
                 }
             }
         });
-        ll_addcar.setOnClickListener(new View.OnClickListener() {
+     /*   ll_addcar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(userModel!=null){
@@ -132,7 +133,7 @@ public class Fragment_More extends Fragment {
 
                 }
             }
-        });
+        });*/
         ll_adversiment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

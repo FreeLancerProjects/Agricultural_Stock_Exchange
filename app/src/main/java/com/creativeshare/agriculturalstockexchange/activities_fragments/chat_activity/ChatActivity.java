@@ -385,8 +385,8 @@ public class ChatActivity extends AppCompatActivity {
     {
         preferences.saveChatUserData(this,chatUserModel);
         tv_name.setText(chatUserModel.getName());
-        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logoa).fit().into(image);
-        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logoa).fit().into(image_chat_user);
+        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logo).fit().into(image);
+        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logo).fit().into(image_chat_user);
     }
     private void SendMessage(String msg)
     {

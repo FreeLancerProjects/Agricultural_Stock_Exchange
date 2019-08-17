@@ -40,9 +40,10 @@ public class Followers_Adapter extends RecyclerView.Adapter<Followers_Adapter.Ey
     public void onBindViewHolder(@NonNull final Eyas_Holder viewHolder, final int i) {
         Follower_Model.Data model = list.get(i);
         viewHolder.tv_name.setText(model.getUser_name());
-        Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL+model.getUser_image())).fit().into(viewHolder.im_follow);
+        if(model.getUser_image()!=null) {
+            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + model.getUser_image())).fit().into(viewHolder.im_follow);
 
-
+        }
 
     }
 
