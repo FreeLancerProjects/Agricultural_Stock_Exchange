@@ -82,12 +82,8 @@ private Fragment_My_adversiment fragment_my_adversiment;
             ((MyHolder) holder).im_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(!advertsings.get(holder.getLayoutPosition()).getMain_category_fk().equals("8")){
                     activity.getoAds(advertsings.get(holder.getLayoutPosition()).getId_advertisement());
-                }
-                else {
-                        Common.CreateSignAlertDialog(activity,activity.getResources().getString(R.string.You_can_not_edit));
-                    }
+
                 }
 
             });
