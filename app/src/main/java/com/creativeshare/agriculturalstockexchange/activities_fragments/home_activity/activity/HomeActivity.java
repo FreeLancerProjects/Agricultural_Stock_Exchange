@@ -92,10 +92,10 @@ public class HomeActivity extends AppCompatActivity {
     private UserModel userModel;
     private final String gps_perm = Manifest.permission.ACCESS_FINE_LOCATION;
     private final int gps_req = 22;
+
     @Override
     protected void attachBaseContext(Context newBase) {
-        Paper.init(newBase);
-        super.attachBaseContext(Language_Helper.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+        super.attachBaseContext(Language_Helper.updateResources(newBase,  Preferences.getInstance().getLanguage(newBase)));
 
     }
 
