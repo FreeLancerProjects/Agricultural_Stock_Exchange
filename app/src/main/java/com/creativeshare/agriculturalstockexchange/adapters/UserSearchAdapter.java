@@ -69,7 +69,7 @@ public class UserSearchAdapter extends RecyclerView.Adapter<UserSearchAdapter.My
         private void BindData(UserSearchDataModel.UserSearchModel userSearchModel)
         {
             tv_name.setText(userSearchModel.getUser_name());
-            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL+userSearchModel.getUser_image())).placeholder(R.drawable.logoa).fit().into(image);
+            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL+userSearchModel.getUser_image())).placeholder(R.drawable.logo).fit().into(image);
         }
 
 

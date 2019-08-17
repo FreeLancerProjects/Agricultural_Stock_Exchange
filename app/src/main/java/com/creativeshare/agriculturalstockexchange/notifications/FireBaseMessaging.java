@@ -164,7 +164,7 @@ public class FireBaseMessaging extends FirebaseMessagingService {
 
                                     if (from_user_image.equals("0"))
                                     {
-                                        Picasso.with(FireBaseMessaging.this).load(R.drawable.logoa).into(target);
+                                        Picasso.with(FireBaseMessaging.this).load(R.drawable.logo).into(target);
 
                                     }else
                                     {
@@ -236,7 +236,7 @@ public class FireBaseMessaging extends FirebaseMessagingService {
 
                                 if (from_user_image.equals("0"))
                                 {
-                                    Picasso.with(FireBaseMessaging.this).load(R.drawable.logoa).into(target);
+                                    Picasso.with(FireBaseMessaging.this).load(R.drawable.logo).into(target);
 
                                 }else
                                 {
@@ -471,7 +471,7 @@ public class FireBaseMessaging extends FirebaseMessagingService {
 
                                     if (from_user_image.equals("0"))
                                     {
-                                        Picasso.with(FireBaseMessaging.this).load(R.drawable.logoa).into(target);
+                                        Picasso.with(FireBaseMessaging.this).load(R.drawable.logo).into(target);
 
                                     }else
                                     {
@@ -529,7 +529,7 @@ public class FireBaseMessaging extends FirebaseMessagingService {
 
                                 if (from_user_image.equals("0"))
                                 {
-                                    Picasso.with(FireBaseMessaging.this).load(R.drawable.logoa).into(target);
+                                    Picasso.with(FireBaseMessaging.this).load(R.drawable.logo).into(target);
 
                                 }else
                                 {

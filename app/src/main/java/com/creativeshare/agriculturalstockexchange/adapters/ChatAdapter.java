@@ -99,7 +99,7 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
         public void BindData(MessageModel messageModel) {
 
-            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + chat_user_image)).placeholder(R.drawable.logoa).fit().priority(Picasso.Priority.HIGH).into(image);
+            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + chat_user_image)).placeholder(R.drawable.logo).fit().priority(Picasso.Priority.HIGH).into(image);
             tv_message_content.setText(messageModel.getMessage());
 
             Paper.init(context);

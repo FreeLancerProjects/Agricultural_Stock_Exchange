@@ -1,5 +1,4 @@
 package com.creativeshare.agriculturalstockexchange.activities_fragments.chat_user_info_activity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -92,7 +91,7 @@ public class ChatUserInfoActivity extends AppCompatActivity {
     private void updateUI(ChatUserModel chatUserModel) {
         tv_name.setText(chatUserModel.getName());
         tv_title.setText(chatUserModel.getName());
-        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logoa).fit().into(image);
+        Picasso.with(this).load(Uri.parse(Tags.IMAGE_URL+chatUserModel.getImage())).placeholder(R.drawable.logo).fit().into(image);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm aa",Locale.ENGLISH);
         String date = dateFormat.format(new Date(Long.parseLong(chatUserModel.getRegistration_date())*1000));
         tv_member.setText(String.format("%s %s",getString(R.string.member_since),date));

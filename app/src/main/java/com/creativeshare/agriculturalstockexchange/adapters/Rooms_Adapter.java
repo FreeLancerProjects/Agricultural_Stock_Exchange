@@ -98,7 +98,7 @@ public class Rooms_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
 
         private void BindData(UserRoomModelData.UserRoomModel userRoomModel) {
-            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + userRoomModel.getSecond_user_image())).placeholder(R.drawable.logoa).fit().into(image);
+            Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + userRoomModel.getSecond_user_image())).placeholder(R.drawable.logo).fit().into(image);
             tv_name.setText(userRoomModel.getSecond_user_name());
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy\nhh:mm aa", Locale.ENGLISH);
             String date = dateFormat.format(new Date(Long.parseLong(userRoomModel.getMessage_date()) * 1000));

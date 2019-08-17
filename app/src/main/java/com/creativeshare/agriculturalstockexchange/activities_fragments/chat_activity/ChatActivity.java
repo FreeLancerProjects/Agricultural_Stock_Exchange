@@ -1,5 +1,6 @@
 package com.creativeshare.agriculturalstockexchange.activities_fragments.chat_activity;
 
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +43,7 @@ import com.creativeshare.agriculturalstockexchange.models.TypingModel;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
 import com.creativeshare.agriculturalstockexchange.remote.Api;
+import com.creativeshare.agriculturalstockexchange.share.Common;
 import com.creativeshare.agriculturalstockexchange.tags.Tags;
 import com.squareup.picasso.Picasso;
 
@@ -60,8 +62,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.app.Activity.RESULT_OK;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -90,7 +90,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language_Helper.updateResources(newBase,Paper.book().read("lang",Locale.getDefault().getLanguage())));
+        super.attachBaseContext(Language_Helper.updateResources(newBase,Paper.book().read("lang", Locale.getDefault().getLanguage())));
 
     }
     @Override
@@ -217,6 +217,7 @@ public class ChatActivity extends AppCompatActivity {
 
         edt_msg_content.addTextChangedListener(new TextWatcher() {
             @Override
+
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 String msg = edt_msg_content.getText().toString();
                 if (msg.length()>0)
@@ -289,7 +290,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        dialog.getWindow().getAttributes().windowAnimations= R.style.dialog_congratulation_animation;
+        //dialog.getWindow().getAttributes().windowAnimation= R.style.dialog_congratulation_animation;
         dialog.setCanceledOnTouchOutside(false);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_window_bg);
         dialog.setView(view);
