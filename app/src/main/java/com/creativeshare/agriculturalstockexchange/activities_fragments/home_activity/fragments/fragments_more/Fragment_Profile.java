@@ -50,8 +50,8 @@ public class Fragment_Profile extends Fragment {
     private CircleImageView imageprofile;
     private TextView tv_name, tv_loaction, tv_address, tv_phone, tv_email;
     private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, im_edit;
-    private LinearLayout lll;
-    private SwitchCompat switchCompat;
+    //private LinearLayout lll;
+    //private SwitchCompat switchCompat;
     private SimpleRatingBar simpleRatingBar;
     private Button bt_upgrade;
     private Preferences preferences;
@@ -100,8 +100,8 @@ public class Fragment_Profile extends Fragment {
         back = view.findViewById(R.id.arrow_back);
         simpleRatingBar = view.findViewById(R.id.rating);
         bt_upgrade = view.findViewById(R.id.bt_upgrade);
-        lll=view.findViewById(R.id.ll);
-        switchCompat=view.findViewById(R.id.switch1);
+      //  lll=view.findViewById(R.id.ll);
+        //switchCompat=view.findViewById(R.id.switch1);
         recyclerotherads =view.findViewById(R.id.rec_advers);
         recyclerotherads.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recyclerotherads.setItemViewCacheSize(25);
@@ -134,7 +134,7 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
             im_edit.setImageDrawable(getResources().getDrawable(R.drawable.follow));
             simpleRatingBar.setVisibility(View.VISIBLE);
             bt_upgrade.setVisibility(View.GONE);
-            lll.setVisibility(View.GONE);
+            //lll.setVisibility(View.GONE);
 
         } else {
             if (userModel != null) {
@@ -159,7 +159,7 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
             }
         });
 
-        switchCompat.setOnClickListener(new View.OnClickListener() {
+      /*  switchCompat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
@@ -167,7 +167,7 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
                 }
             }
 
-        });
+        });*/
         simpleRatingBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -445,12 +445,12 @@ try {
                 simpleRatingBar.setRating(userModel.getRating_value());
 
             }
-            if(userModel.getInsurance_services().equals("0")){
+         /*   if(userModel.getInsurance_services().equals("0")){
                 switchCompat.setChecked(false);
             }
             else {
                 switchCompat.setChecked(true);
-            }
+            }*/
             if(userModel.getAdvertsing()!=null){
                 advertsingList.clear();
                 advertsingList.addAll(userModel.getAdvertsing());
