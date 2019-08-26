@@ -131,7 +131,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/commision" />
+                    android:src="@drawable/commision"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -175,7 +177,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/about" />
+                    android:src="@drawable/about"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -259,7 +263,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/terms" />
+                    android:src="@drawable/terms"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -294,7 +300,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:layout_constraintTop_toTopOf="parent"
-
+android:visibility="gone"
                 >
 
                 <ImageView
@@ -302,7 +308,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/profile"
-                    android:tint="@color/delete"
+                    android:tint="@color/colorAccent"
                     />
 
                 <TextView
@@ -331,7 +337,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray3" />
+                android:background="@color/gray3"
+                android:visibility="gone"
+                />
 
             <LinearLayout
                 android:id="@+id/ll_advertisement"
@@ -346,6 +354,7 @@
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/adversment"
+                    android:tint="@color/colorAccent"
 
                     />
 
@@ -432,7 +441,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/follower" />
+                    android:src="@drawable/follower"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -558,7 +569,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/logout" />
+                    android:src="@drawable/logout"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"

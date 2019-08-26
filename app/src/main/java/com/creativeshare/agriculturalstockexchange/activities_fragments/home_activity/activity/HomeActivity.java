@@ -21,7 +21,6 @@ import com.creativeshare.agriculturalstockexchange.activities_fragments.ads_acti
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.Fragment_Car_Search;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.Fragment_Home;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.Fragment_Main;
-import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.Fragment_Search;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_insurance_cars.Fragment_Accept_Refues_insurance_Offer;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_insurance_cars.Fragment_Send_insurance_Offer;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_insurance_cars.Fragment_insurance_car;
@@ -71,13 +70,13 @@ public class HomeActivity extends AppCompatActivity {
     private Fragment_Home fragment_home;
     private Fragment_Main fragment_main;
     private Fragment_Message_Notifications fragment_message_notifications;
-    private Fragment_Search fragment_search;
+    private Fragment_Profile fragment_profile;
     private Fragment_Car_Search fragment_car_search;
     private Fragment_More fragment_more;
     private Fragment_Follower_List fragment_follower_list;
     private Fragment_Terms_Conditions fragmentTerms_conditions;
     private Fragment_About fragment_about;
-    private Fragment_Profile fragment_profile;
+   // private Fragment_Profile fragment_profile;
     private Fragment_Edit_Profile fragment_edit_profile;
     private Fragment_App_Percentage fragment_app_percentage;
     private Fragment_My_adversiment fragment_my_adversiment;
@@ -208,8 +207,8 @@ public class HomeActivity extends AppCompatActivity {
         if (fragment_message_notifications != null && fragment_message_notifications.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_message_notifications).commit();
         }
-        if (fragment_search != null && fragment_search.isAdded()) {
-            fragmentManager.beginTransaction().hide(fragment_search).commit();
+        if (fragment_profile != null && fragment_profile.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_profile).commit();
         }
         if (fragment_more != null && fragment_more.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_more).commit();
@@ -326,7 +325,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     }
-    public void DisplayFragmentProfile() {
+  /*  public void DisplayFragmentProfile() {
         fragment_count += 1;
         fragment_profile = Fragment_Profile.newInstance();
 
@@ -338,7 +337,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     }
-
+*/
     public void DisplayFragmentEditProfile() {
         fragment_count += 1;
         fragment_edit_profile = Fragment_Edit_Profile.newInstance();
@@ -418,8 +417,8 @@ public class HomeActivity extends AppCompatActivity {
         if (fragment_main != null && fragment_main.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_main).commit();
         }
-        if (fragment_search != null && fragment_search.isAdded()) {
-            fragmentManager.beginTransaction().hide(fragment_search).commit();
+        if (fragment_profile != null && fragment_profile.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_profile).commit();
         }
         if (fragment_more != null && fragment_more.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_more).commit();
@@ -436,9 +435,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void DisplayFragmentSearch() {
-        if (fragment_search == null) {
-            fragment_search = Fragment_Search.newInstance();
+    public void DisplayFragmentProile() {
+        if (fragment_profile == null) {
+            fragment_profile = fragment_profile.newInstance();
         }
         if (fragment_main != null && fragment_main.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_main).commit();
@@ -450,12 +449,12 @@ public class HomeActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().hide(fragment_more).commit();
         }
 
-        if (fragment_search.isAdded()) {
-            fragmentManager.beginTransaction().show(fragment_search).commit();
-            fragment_search.changevisible();
+        if (fragment_profile.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_profile).commit();
+         //   fragment_profile.changevisible();
 
         } else {
-            fragmentManager.beginTransaction().add(R.id.fragment_home_container, fragment_search, "fragment_search").addToBackStack("fragment_search").commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_home_container, fragment_profile, "fragment_profile").addToBackStack("fragment_profile").commit();
 
         }
         if (fragment_home != null && fragment_home.isAdded()) {
@@ -471,8 +470,8 @@ public class HomeActivity extends AppCompatActivity {
         if (fragment_main != null && fragment_main.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_main).commit();
         }
-        if (fragment_search != null && fragment_search.isAdded()) {
-            fragmentManager.beginTransaction().hide(fragment_search).commit();
+        if (fragment_profile != null && fragment_profile.isAdded()) {
+            fragmentManager.beginTransaction().hide(fragment_profile).commit();
         }
         if (fragment_message_notifications != null && fragment_message_notifications.isAdded()) {
             fragmentManager.beginTransaction().hide(fragment_message_notifications).commit();

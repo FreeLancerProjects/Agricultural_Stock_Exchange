@@ -84,12 +84,12 @@
     <string name="department2">Department</string>
     <string name="type">Type</string>
     <string name="model">Model</string>
-    <string name="color">color</string>
+    <string name="color">Quantity</string>
     <string name="plate_number">Add Plate Number For Lost Car</string>
     <string name="add">add</string>
     <string name="near_to_me">near to me</string>
     <string name="piece_number">piece number</string>
-    <string name="responsible_person">Name of the owner of the lost car</string>
+    <string name="responsible_person">Product Name</string>
     <string name="insurance_car">insurance car</string>
     <string name="residency_number">Residence Number / Identity Number</string>
     <string name="Date_expire_residence">Date of expiry of residence / identity</string>

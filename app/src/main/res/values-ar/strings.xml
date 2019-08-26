@@ -85,12 +85,12 @@
     <string name="department2">القسم</string>
     <string name="type">النوع </string>
     <string name="model">الموديل</string>
-    <string name="color">اللون</string>
+    <string name="color">الكميه</string>
     <string name="plate_number"> ادخل رقم اللوحه السياره المفقوده </string>
     <string name="add">اضافه</string>
     <string name="near_to_me">القريب منى</string>
     <string name="piece_number">رقم القطعه</string>
-    <string name="responsible_person">اسم صاحب السياره المفقوده</string>
+    <string name="responsible_person">اسم الصنف</string>
     <string name="insurance_car">طلب تأمين سيارة</string>
     <string name="residency_number">رقم الاقامة / رقم الهوية</string>
     <string name="Date_expire_residence">تاريخ انتهاء الإقامة / الهوية</string>

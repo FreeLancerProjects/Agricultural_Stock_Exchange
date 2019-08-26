@@ -131,20 +131,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/the_manufacture_company"
+                android:text="@string/department"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edt_manufacture"
+            <Spinner
+                android:id="@+id/sp_cat"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/white"
-                android:hint="@string/the_manufacture_company"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:background="@color/white"></Spinner>
 
             <View
                 android:layout_width="match_parent"
@@ -157,7 +153,9 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:visibility="gone"
+                >
 
                 <RadioButton
                     android:id="@+id/r_used"
@@ -215,7 +213,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@color/white"
-                android:hint="@string/plate_number"
+                android:hint="@string/price"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -237,13 +235,16 @@ android:inputType="number"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                android:visibility="gone"
 
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray7" />
+                android:background="@color/gray7"
+                android:visibility="gone"
+                />
 
             <Spinner
                 android:id="@+id/sp_city"
