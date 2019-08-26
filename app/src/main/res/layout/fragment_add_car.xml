@@ -140,7 +140,9 @@
                 android:id="@+id/sp_cat"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/white"></Spinner>
+                android:background="@color/white">
+
+            </Spinner>
 
             <View
                 android:layout_width="match_parent"

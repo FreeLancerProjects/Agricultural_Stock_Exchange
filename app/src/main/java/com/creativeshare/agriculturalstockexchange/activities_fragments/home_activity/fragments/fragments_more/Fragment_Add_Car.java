@@ -37,7 +37,9 @@ import com.creativeshare.agriculturalstockexchange.R;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
 import com.creativeshare.agriculturalstockexchange.adapters.GalleryAdapter;
 import com.creativeshare.agriculturalstockexchange.adapters.Spinner_Adapter;
+import com.creativeshare.agriculturalstockexchange.adapters.Spinner_catogry_Adapter;
 import com.creativeshare.agriculturalstockexchange.models.Adversiting_Model;
+import com.creativeshare.agriculturalstockexchange.models.Catogry_Model;
 import com.creativeshare.agriculturalstockexchange.models.CityModel;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
@@ -63,26 +65,28 @@ public class Fragment_Add_Car extends Fragment {
     private UserModel userModel;
     private ImageView arrow_back;
     private LinearLayout ll_continue;
-    private EditText edt_manufc, edt_responsible, edt_color, edt_platenume, edt_phone;
+    private EditText  edt_responsible, edt_color, edt_platenume, edt_phone;
     //  private Spinner_Sub_catogry_Adapter spinner_sub_catogry_adapter;
     // private Spinner_catogry_Adapter spinner_catogry_adapter;
     //private Spinner_Sub_Sub_catogry_Adapter spinner_sub_sub_catogry_adapter;
     // private Spinner sp_cat, sp_sub_cat, sp_model;
-    private Spinner cities;
+    private Spinner cities,sp_cat;
     private Spinner_Adapter city_adapter;
     private List<CityModel> cities_models;
     private LinearLayout ll_cv;
     private RecyclerView recyclerView_images;
     private RadioGroup group_type;
+    private Spinner_catogry_Adapter spinner_catogry_adapter;
 
     private GalleryAdapter galleryAdapter;
     private List<Uri> uriList;
     //private List<Catogry_Model.Categories.sub> subs;
-    //private List<Catogry_Model.Categories> categories;
+    private List<Catogry_Model.Categories> categories;
+    private String  cat_id;
     //private List<Catogry_Model.Categories.sub.Sub> subs_sub;
     private final int IMG2 = 2;
     private final String read_permission = Manifest.permission.READ_EXTERNAL_STORAGE;
-    // private String  cat_id, sub_id, model_id;
+    //  sub_id, model_id;
     private String city_id, car_types;
     // private Adversiment_Model adversiment_model;
 
@@ -97,7 +101,8 @@ public class Fragment_Add_Car extends Fragment {
     }
 
     private void initView(View view) {
-        //adversiment_model = new Adversiment_Model();
+        //adversiment_model =
+        categories=new ArrayList<>();
         homeActivity = (HomeActivity) getActivity();
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(homeActivity);
@@ -105,8 +110,11 @@ public class Fragment_Add_Car extends Fragment {
         cuurent_language = Paper.book().read("lang", Locale.getDefault().getLanguage());
         ll_continue = view.findViewById(R.id.ll_continue);
         group_type = view.findViewById(R.id.group_type);
+        sp_cat = view.findViewById(R.id.sp_cat);
 
-        edt_manufc = view.findViewById(R.id.edt_manufacture);
+        spinner_catogry_adapter = new Spinner_catogry_Adapter(homeActivity, categories);
+sp_cat.setAdapter(spinner_catogry_adapter);
+        //edt_manufc = view.findViewById(R.id.edt_manufacture);
         edt_responsible = view.findViewById(R.id.edt_responsilbel);
         edt_color = view.findViewById(R.id.edt_color);
         edt_platenume = view.findViewById(R.id.edt_platenum);
@@ -189,20 +197,13 @@ public class Fragment_Add_Car extends Fragment {
 
             }
         });
-      /*  sp_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        sp_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                subs.clear();
-                if (cuurent_language.equals("ar")) {
-                    subs.add(new Catogry_Model.Categories.sub("النوع"));
 
-                } else {
-                    subs.add(new Catogry_Model.Categories.sub("Type"));
-
-                }
                 if (i > 0 && categories.get(i).getsub() != null) {
-                    subs.addAll(categories.get(i).getsub());
-                    spinner_sub_catogry_adapter.notifyDataSetChanged();
+                    //subs.addAll(categories.get(i).getsub());
+                   // spinner_sub_catogry_adapter.notifyDataSetChanged();
                     cat_id = categories.get(i).getMain_category_fk();
                 }
             }
@@ -212,6 +213,7 @@ public class Fragment_Add_Car extends Fragment {
 
             }
         });
+        /*
         sp_sub_cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -272,19 +274,17 @@ public class Fragment_Add_Car extends Fragment {
     }
 
     private void checkdata() {
-        String manuf = edt_manufc.getText().toString();
+       // String manuf = edt_manufc.getText().toString();
         String responsilble = edt_responsible.getText().toString();
         String colors = edt_color.getText().toString();
         String platenum = edt_platenume.getText().toString();
         String phone = edt_phone.getText().toString();
-        if (city_id != null && ((uriList.size() > 0)) && !TextUtils.isEmpty(manuf) && !TextUtils.isEmpty(responsilble) && !TextUtils.isEmpty(colors) && !TextUtils.isEmpty(platenum) && !TextUtils.isEmpty(phone)) {
+        if (city_id != null &&cat_id!=null&& ((uriList.size() > 0)) && !TextUtils.isEmpty(responsilble) && !TextUtils.isEmpty(colors) && !TextUtils.isEmpty(platenum) && !TextUtils.isEmpty(phone)) {
 
-            addlostcar(manuf, responsilble, colors, platenum, phone);
+            addlostcar(cat_id, responsilble, colors, platenum, phone);
 
         } else {
-            if (TextUtils.isEmpty(manuf)) {
-                edt_manufc.setError(getResources().getString(R.string.field_req));
-            }
+
             if (TextUtils.isEmpty(responsilble)) {
                 edt_responsible.setError(getResources().getString(R.string.field_req));
             }
@@ -298,21 +298,21 @@ public class Fragment_Add_Car extends Fragment {
             if (TextUtils.isEmpty(phone)) {
                 edt_phone.setError(getResources().getString(R.string.field_req));
             }
-         /*   if (city_id == null || cat_id == null || sub_id == null || (uriList.size() > 0)) {
+            if (city_id == null || cat_id == null ) {
                 Common.CreateSignAlertDialog(homeActivity, getString(R.string.complete_all));
 
-            }*/
+            }
         }
     }
 
-    private void addlostcar(String manuf, String responsilble, String colors, String platenum, String phone) {
+    private void addlostcar(String cat_id, String responsilble, String colors, String platenum, String phone) {
         final Dialog dialog = Common.createProgressDialog(homeActivity, getString(R.string.wait));
         dialog.setCancelable(false);
         dialog.show();
         RequestBody user_part = Common.getRequestBodyText(userModel.getUser_id());
 //        RequestBody sub_part = Common.getRequestBodyText(sub_id);
         //      RequestBody model_part = Common.getRequestBodyText(model_id);
-        RequestBody manuf_part = Common.getRequestBodyText(manuf);
+        RequestBody manuf_part = Common.getRequestBodyText(cat_id);
         //RequestBody piece_part = Common.getRequestBodyText(adversiment_model.getPiece());
 
         RequestBody respons_part = Common.getRequestBodyText(responsilble);
@@ -420,7 +420,7 @@ RequestBody car_type=Common.getRequestBodyText(car_types);
                 });
 
     }
-/*
+
     public void categories() {
 
         Api.getService().getcateogries(cuurent_language).enqueue(new Callback<Catogry_Model>() {
@@ -478,7 +478,7 @@ catch (Exception e){
                 //mPager.setVisibility(View.GONE);
             }
         });
-    }*/
+    }
 
     public void Delete(int position) {
         uriList.remove(position);
