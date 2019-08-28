@@ -134,13 +134,17 @@
                 android:text="@string/department"
                 android:textColor="@color/colorPrimary"
                 android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
 
             <Spinner
                 android:id="@+id/sp_cat"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:visibility="gone"
+                >
 
             </Spinner>
 
@@ -191,7 +195,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray7" />
+                android:background="@color/gray7"
+                android:visibility="gone"
+                />
 
             <EditText
                 android:id="@+id/edt_color"

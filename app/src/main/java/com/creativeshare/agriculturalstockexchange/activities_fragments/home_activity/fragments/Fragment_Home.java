@@ -121,7 +121,7 @@ public class Fragment_Home extends Fragment {
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem(getString(R.string.home), R.drawable.house);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem(getString(R.string.notifications), R.drawable.ic_mail);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem(getString(R.string.search), R.drawable.ic_user);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem(getString(R.string.my_profile), R.drawable.ic_user);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem(getString(R.string.more), R.drawable.more);
 
         ah_bottom_nav.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);

@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp">
-<!--
+
           <LinearLayout
               android:id="@+id/ll_addcar"
                 android:layout_width="match_parent"
@@ -87,7 +87,9 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/plus" />
+                    android:src="@drawable/plus"
+                    android:tint="@color/colorAccent"
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -117,7 +119,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/gray3" />-->
+                android:background="@color/gray3" />
 
             <LinearLayout
                 android:id="@+id/ll_commission"

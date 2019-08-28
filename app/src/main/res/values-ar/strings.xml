@@ -8,7 +8,7 @@
     <string name="search">بحث</string>
     <string name="more">المزيد</string>
     <string name="message">الرسائل</string>
-    <string name="add_search_for_missing_car">اضافة سيارة مفقودة</string>
+    <string name="add_search_for_missing_car">اضافة صنف</string>
     <string name="application_commission">عمولة التطبيق </string>
     <string name="about_hand_break">عن التطبيق</string>
     <string name="contact_us">تواصل معنا</string>
@@ -89,7 +89,7 @@
     <string name="plate_number"> ادخل رقم اللوحه السياره المفقوده </string>
     <string name="add">اضافه</string>
     <string name="near_to_me">القريب منى</string>
-    <string name="piece_number">رقم القطعه</string>
+    <string name="product_number">رقم القطعه</string>
     <string name="responsible_person">اسم الصنف</string>
     <string name="insurance_car">طلب تأمين سيارة</string>
     <string name="residency_number">رقم الاقامة / رقم الهوية</string>
@@ -103,7 +103,7 @@
     <string name="title">العنوان</string>
     <string name="upgrade">تحويل الى تاجر</string>
     <string name="market_name">اسم المتجر</string>
-    <string name="piece_number_if_not_present_it_will_be_placed_0">رقم القطعه فى حالة عدم وجودها سيتم وضعها ب 0</string>
+    <string name="product_number_if_not_present_it_will_be_placed_0">رقم الصنف فى حالة عدم وجودها سيتم وضعها ب 0</string>
     <string name="plate_number_if_not_present_it_will_be_placed_0">رقم اللوحه فى حالة عدم وجودها سيتم وضعها ب 0</string>
     <string name="insurance_type">نوع التامين</string>
     <string name="comprehensive">شامل</string>
@@ -138,7 +138,7 @@
     <string name="lost_car">السيارات المفقوده</string>
     <string name="edit_profile">تعديل الصفحه الشخصيه</string>
     <string name="followers">المتابعين</string>
-    <string name="piece_name">اسم القطعه</string>
+    <string name="product_name">اسم الصنف</string>
     <string name="upload_car_image">رفع صور السياره</string>
     <string name="same_adversiment">الاعلانات المشابهه</string>
     <string name="my_car">سيارتى</string>

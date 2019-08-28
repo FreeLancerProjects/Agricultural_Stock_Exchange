@@ -7,7 +7,7 @@
     <string name="search">Search</string>
     <string name="more">More</string>
     <string name="message">Message</string>
-    <string name="add_search_for_missing_car">Add  Lost Car</string>
+    <string name="add_search_for_missing_car">Add  Product</string>
     <string name="application_commission">Application Commision </string>
     <string name="about_hand_break">About App</string>
     <string name="contact_us">Contact Us</string>
@@ -63,7 +63,7 @@
     <string name="member_since">Member since </string>
     <string name="failed">Failed</string>
     <string name="my_advertisment">My Adverimant</string>
-    <string name="upload">Upload piece Images</string>
+    <string name="upload">Upload product Images</string>
     <string name="perm_image_denied">Permision Images Deined</string>
     <string name="complete_all">Commplete You Information</string>
     <string name="used">Used</string>
@@ -88,7 +88,7 @@
     <string name="plate_number">Add Plate Number For Lost Car</string>
     <string name="add">add</string>
     <string name="near_to_me">near to me</string>
-    <string name="piece_number">piece number</string>
+    <string name="product_number">product number</string>
     <string name="responsible_person">Product Name</string>
     <string name="insurance_car">insurance car</string>
     <string name="residency_number">Residence Number / Identity Number</string>
@@ -102,7 +102,7 @@
     <string name="title">title</string>
     <string name="upgrade">Upgrade to dealer</string>
     <string name="market_name">market name</string>
-    <string name="piece_number_if_not_present_it_will_be_placed_0">piece_number If not present, it will be placed 0</string>
+    <string name="product_number_if_not_present_it_will_be_placed_0">product_number If not present, it will be placed 0</string>
     <string name="plate_number_if_not_present_it_will_be_placed_0">plate_number If not present, it will be placed 0</string>
     <string name="insurance_type">insurance type</string>
     <string name="comprehensive">comprehensive</string>
@@ -136,7 +136,7 @@
     <string name="lost_car">Lost Car</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="followers">Followers</string>
-    <string name="piece_name">Piece name</string>
+    <string name="product_name">Product name</string>
     <string name="upload_car_image">upload Car Images</string>
     <string name="same_adversiment">Same Adversiment</string>
     <string name="my_car">My Car</string>

@@ -325,7 +325,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     }
-  /*  public void DisplayFragmentProfile() {
+    public void DisplayFragmentProfile() {
         fragment_count += 1;
         fragment_profile = Fragment_Profile.newInstance();
 
@@ -337,7 +337,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     }
-*/
+
     public void DisplayFragmentEditProfile() {
         fragment_count += 1;
         fragment_edit_profile = Fragment_Edit_Profile.newInstance();

@@ -319,7 +319,7 @@ city_id=userModel.getUser_city()+"";}
                    // Common.CreateSignAlertDialog(homeActivity, getResources().getString(R.string.suc));
                     homeActivity.Back();
                     homeActivity.Back();
-                    homeActivity.DisplayFragmentProfile();
+                    homeActivity.DisplayFragmentProile();
                    // edt_pass.setText("");
                    // updateprofile();
                 } else {

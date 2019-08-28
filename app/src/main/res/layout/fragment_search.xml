@@ -30,7 +30,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:singleLine="true"
-        android:hint="@string/piece_name"
+        android:hint="@string/product_name"
 
         />
     <ImageView
