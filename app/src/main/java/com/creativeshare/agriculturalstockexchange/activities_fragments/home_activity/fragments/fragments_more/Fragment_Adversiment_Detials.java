@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,12 +56,13 @@ public class Fragment_Adversiment_Detials extends Fragment {
     private String id_advertisement;
     private HomeActivity activity;
     private String cuurent_language;
-    private ImageView back, im_follow;
-    private TextView tv_title, tv_time, tv_coomericail, tv_name, tv_city, tv_desc, tv_phone, tv_type;
+    private ImageView back, im_follow,im_mail;
+    private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc;
     private ViewPager mPager;
     private TabLayout indicator;
     private RecyclerView recyclerView_images, recyclerView_comment;
-    private ConstraintLayout cons_chat, cons_follow, cons_comment, cons_profile;
+    private ConstraintLayout  cons_comment, cons_profile;
+    private LinearLayout ll_services,ll_messge;
     private EditText edt_comment;
     private int current_page = 0, NUM_PAGES, total_page, current_page1 = 1;
     private ProgressBar progBar;
@@ -106,20 +108,20 @@ public class Fragment_Adversiment_Detials extends Fragment {
         back = view.findViewById(R.id.arrow_back);
         tv_title = view.findViewById(R.id.tv_title);
         tv_time = view.findViewById(R.id.tv_time);
-        tv_coomericail = view.findViewById(R.id.tv_commercial);
+      //  tv_coomericail = view.findViewById(R.id.tv_commercial);
         tv_name = view.findViewById(R.id.tv_name);
         tv_city = view.findViewById(R.id.tv_city);
         tv_desc = view.findViewById(R.id.tv_desc);
-        tv_phone = view.findViewById(R.id.tv_phone);
-        tv_type = view.findViewById(R.id.tv_type);
+        //tv_phone = view.findViewById(R.id.tv_phone);
         progBar = view.findViewById(R.id.progBar);
         mPager = view.findViewById(R.id.pager);
         indicator = view.findViewById(R.id.tablayout);
         recyclerView_comment = view.findViewById(R.id.rec_comment);
         recyclerView_images = view.findViewById(R.id.rec_images);
-        im_follow = view.findViewById(R.id.im8);
-        cons_follow = view.findViewById(R.id.cons5);
-        cons_chat = view.findViewById(R.id.cons3);
+        im_follow = view.findViewById(R.id.im_follow);
+        im_mail = view.findViewById(R.id.im_mail);
+ll_messge=view.findViewById(R.id.ll_messaging);
+ll_services=view.findViewById(R.id.ll_service);
         cons_comment = view.findViewById(R.id.cons_comment);
         edt_comment = view.findViewById(R.id.edt_comment);
         cons_profile = view.findViewById(R.id.cons_profile);
@@ -169,7 +171,7 @@ public class Fragment_Adversiment_Detials extends Fragment {
                 activity.Back();
             }
         });
-        cons_chat.setOnClickListener(new View.OnClickListener() {
+        im_mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
@@ -179,7 +181,7 @@ public class Fragment_Adversiment_Detials extends Fragment {
                 }
             }
         });
-        cons_follow.setOnClickListener(new View.OnClickListener() {
+        im_follow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
@@ -354,34 +356,20 @@ public class Fragment_Adversiment_Detials extends Fragment {
         this.adversiting_model = advertsing;
         if(userModel!=null){
         if (this.adversiting_model.getAdvertisement_user().equals(userModel.getUser_id())) {
-            cons_chat.setVisibility(View.INVISIBLE);
+            ll_services.setVisibility(View.INVISIBLE);
             cons_profile.setVisibility(View.INVISIBLE);
-            cons_follow.setVisibility(View.INVISIBLE);
+            ll_messge.setVisibility(View.INVISIBLE);
             cons_profile.setVisibility(View.INVISIBLE);
         }}
-        if (this.adversiting_model.getMain_category_fk().equals("8")) {
-            if (adversiting_model.getAdvertisement_type().equals("1")) {
-                tv_type.setText(getResources().getString(R.string.i_found_it));
-            } else {
-                tv_type.setText(getResources().getString(R.string.my_car));
 
-            }
-        } else {
-            if (adversiting_model.getAdvertisement_type().equals("1")) {
-                tv_type.setText(getResources().getString(R.string.news));
-            } else {
-                tv_type.setText(getResources().getString(R.string.used));
-
-            }
-        }
         tv_time.setText(Time_Ago.getTimeAgo(Long.parseLong(advertsing.getAdvertisement_date()), activity));
         tv_title.setText(advertsing.getAdvertisement_title());
         // Log.e("msg", Integer.parseInt(advertsing.getAdvertisement_date()) + "");
         tv_name.setText(advertsing.getUser_name());
-        tv_phone.setText(advertsing.getPhone());
+        //tv_phone.setText(advertsing.getPhone());
         tv_city.setText(advertsing.getCity_title());
         tv_desc.setText(advertsing.getAdvertisement_content());
-        tv_coomericail.setText(advertsing.getAdvertisement_code());
+        //tv_coomericail.setText(advertsing.getAdvertisement_code());
         progBar.setVisibility(View.GONE);
         NUM_PAGES = advertsing.getAdvertisement_images().size();
         slidingImage__adapter = new SlidingImage_Adapter(activity, advertsing.getAdvertisement_images());

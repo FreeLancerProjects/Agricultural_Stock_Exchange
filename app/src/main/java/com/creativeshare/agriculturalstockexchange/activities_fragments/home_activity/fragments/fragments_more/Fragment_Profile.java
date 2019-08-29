@@ -50,8 +50,8 @@ public class Fragment_Profile extends Fragment {
     private CircleImageView imageprofile;
     private TextView tv_name, tv_loaction, tv_address, tv_phone, tv_email;
     private ImageView arrow1, arrow2, arrow3, arrow4, arrow5, im_edit;
-    //private LinearLayout lll;
-    //private SwitchCompat switchCompat;
+    private LinearLayout ll_shipservice,lll_packging,ll_storage;
+    private SwitchCompat switchCompat,switchCompatpackge,switchCompatstorage;
     private SimpleRatingBar simpleRatingBar;
     private Button bt_upgrade;
     private Preferences preferences;
@@ -100,8 +100,12 @@ public class Fragment_Profile extends Fragment {
         back = view.findViewById(R.id.arrow_back);
         simpleRatingBar = view.findViewById(R.id.rating);
         bt_upgrade = view.findViewById(R.id.bt_upgrade);
-      //  lll=view.findViewById(R.id.ll);
-        //switchCompat=view.findViewById(R.id.switch1);
+        ll_shipservice=view.findViewById(R.id.ll);
+        lll_packging=view.findViewById(R.id.lll);
+        ll_storage=view.findViewById(R.id.llll);
+        switchCompat=view.findViewById(R.id.switch1);
+        switchCompatpackge=view.findViewById(R.id.switch2);
+        switchCompatstorage=view.findViewById(R.id.switch3);
         recyclerotherads =view.findViewById(R.id.rec_advers);
         recyclerotherads.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recyclerotherads.setItemViewCacheSize(25);
@@ -134,7 +138,9 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
             im_edit.setImageDrawable(getResources().getDrawable(R.drawable.follow));
             simpleRatingBar.setVisibility(View.VISIBLE);
             bt_upgrade.setVisibility(View.GONE);
-            //lll.setVisibility(View.GONE);
+            ll_shipservice.setVisibility(View.GONE);
+            lll_packging.setVisibility(View.GONE);
+            ll_storage.setVisibility(View.GONE);
 
         } else {
             if (userModel != null) {
@@ -159,7 +165,7 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
             }
         });
 
-      /*  switchCompat.setOnClickListener(new View.OnClickListener() {
+        switchCompat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
@@ -167,7 +173,23 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
                 }
             }
 
-        });*/
+        });
+        switchCompatpackge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(userModel!=null){
+                    changenotifystatus2();
+                }
+            }
+        });
+        switchCompatstorage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(userModel!=null){
+                    changenotifystatus3();
+                }
+            }
+        });
         simpleRatingBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,13 +209,13 @@ recyclerotherads.setAdapter(other_adversiment_adapter);
             dialog.show();
            // Log.e("user", userModel.getToken());
             String insurancetype;
-            if(userModel.getInsurance_services().equals("1")){
+            if(userModel.getShipping_serv().equals("1")){
                 insurancetype="0";
             }
             else {
                 insurancetype="1";
             }
-            Api.getService().updateprofile(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
+            Api.getService().shipping_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
                 @Override
                 public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                     dialog.dismiss();
@@ -230,6 +252,104 @@ try {
                 }
             });
         }
+    private void changenotifystatus2() {
+        final ProgressDialog dialog = Common.createProgressDialog(homeActivity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        // Log.e("user", userModel.getToken());
+        String insurancetype;
+        if(userModel.getPackaging_serv().equals("1")){
+            insurancetype="0";
+        }
+        else {
+            insurancetype="1";
+        }
+        Api.getService().storage_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+                    //   Log.e("kk",response.body().getInsurance_services());
+                    preferences.create_update_userdata(homeActivity,response.body());
+                    userModel=preferences.getUserData(homeActivity);
+
+                    updateprofile();
+                } else {
+                    try {
+                        Log.e("error_code", response.code() + "_" + response.errorBody() + response.message() + response.raw() + response.headers());
+
+
+                        Toast.makeText(homeActivity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                dialog.dismiss();
+                try {
+                    Toast.makeText(homeActivity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                }
+                catch (Exception e){
+
+                }
+            }
+        });
+    }
+    private void changenotifystatus3() {
+        final ProgressDialog dialog = Common.createProgressDialog(homeActivity, getString(R.string.wait));
+        dialog.setCancelable(false);
+        dialog.show();
+        // Log.e("user", userModel.getToken());
+        String insurancetype;
+        if(userModel.getStorage_serv().equals("1")){
+            insurancetype="0";
+        }
+        else {
+            insurancetype="1";
+        }
+        Api.getService().shipping_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
+            @Override
+            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+                dialog.dismiss();
+                if (response.isSuccessful()) {
+                    //   Log.e("kk",response.body().getInsurance_services());
+                    preferences.create_update_userdata(homeActivity,response.body());
+                    userModel=preferences.getUserData(homeActivity);
+
+                    updateprofile();
+                } else {
+                    try {
+                        Log.e("error_code", response.code() + "_" + response.errorBody() + response.message() + response.raw() + response.headers());
+
+
+                        Toast.makeText(homeActivity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                    }catch (Exception e){
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserModel> call, Throwable t) {
+                dialog.dismiss();
+                try {
+                    Toast.makeText(homeActivity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                    Log.e("Error", t.getMessage());
+                }
+                catch (Exception e){
+
+                }
+            }
+        });
+    }
 
 
     private void updaterating() {
@@ -445,12 +565,24 @@ try {
                 simpleRatingBar.setRating(userModel.getRating_value());
 
             }
-         /*   if(userModel.getInsurance_services().equals("0")){
+            if(userModel.getShipping_serv().equals("0")){
                 switchCompat.setChecked(false);
             }
             else {
                 switchCompat.setChecked(true);
-            }*/
+            }
+            if(userModel.getPackaging_serv().equals("0")){
+                switchCompatpackge.setChecked(false);
+            }
+            else {
+                switchCompatpackge.setChecked(true);
+            }
+            if(userModel.getStorage_serv().equals("0")){
+                switchCompatstorage.setChecked(false);
+            }
+            else {
+                switchCompatstorage.setChecked(true);
+            }
             if(userModel.getAdvertsing()!=null){
                 advertsingList.clear();
                 advertsingList.addAll(userModel.getAdvertsing());

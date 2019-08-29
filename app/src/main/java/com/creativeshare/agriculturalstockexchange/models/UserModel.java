@@ -26,6 +26,9 @@ public class UserModel implements Serializable {
     private String en_city_title;
 private String insurance_services;
     private List<Advertsing> advertsing;
+    private String shipping_serv;
+            private String packaging_serv;
+            private String storage_serv;
 
     public String getUser_id() {
         return user_id;
@@ -118,6 +121,19 @@ private String insurance_services;
     public String getInsurance_services() {
         return insurance_services;
     }
+
+    public String getShipping_serv() {
+        return shipping_serv;
+    }
+
+    public String getPackaging_serv() {
+        return packaging_serv;
+    }
+
+    public String getStorage_serv() {
+        return storage_serv;
+    }
+
     public List<Advertsing> getAdvertsing() {
         return advertsing;
     }

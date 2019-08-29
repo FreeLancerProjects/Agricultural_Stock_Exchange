@@ -62,13 +62,28 @@ public interface Service {
 
     @FormUrlEncoded
     @POST("Api/updateProfile")
-    Call<UserModel> updateprofile(
+    Call<UserModel> shipping_serv(
             @Field("user_id") String user_id,
-            @Field("insurance_services") String insurance_services
+            @Field("shipping_serv") String shipping_serv
 
 
     );
+    @FormUrlEncoded
+    @POST("Api/updateProfile")
+    Call<UserModel> packaging_serv(
+            @Field("user_id") String user_id,
+            @Field("packaging_serv") String packaging_serv
 
+
+    );
+    @FormUrlEncoded
+    @POST("Api/updateProfile")
+    Call<UserModel> storage_serv(
+            @Field("user_id") String user_id,
+            @Field("storage_serv") String storage_serv
+
+
+    );
     @Multipart
     @POST("Api/updateProfile")
     Call<UserModel> udateimage(@Part("user_id") RequestBody user_id,
