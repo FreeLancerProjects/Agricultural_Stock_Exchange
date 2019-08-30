@@ -145,8 +145,13 @@
     <string name="i_found_it">وجدتها</string>
     <string name="You_can_not_edit">لا يمكنك التعديل</string>
     <string name="car_owner">اسم صاحب السياره</string>
-    <string name="services">Services</string>
-    <string name="contact_user">Contact User</string>
+    <string name="services">الخدمات</string>
+    <string name="contact_user">اتصل بالمستخدم</string>
+    <string name="packge_serv">خدمة التغليف</string>
+    <string name="ship_service">خدمة الشحن</string>
+
+    <string name="storage_serv">خدمة التخزين</string>
+
     <string-array name="models">
         <item>اختر</item>
         <item>2000</item>

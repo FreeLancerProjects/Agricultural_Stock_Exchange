@@ -146,6 +146,8 @@
     <string name="ship_service">Shipping service</string>
     <string name="services">Services</string>
     <string name="contact_user">Contact User</string>
+    <string name="packge_serv">Packaging service</string>
+    <string name="storage_serv">Storage Service</string>
     <string-array name="models">
         <item>Choose</item>
 
