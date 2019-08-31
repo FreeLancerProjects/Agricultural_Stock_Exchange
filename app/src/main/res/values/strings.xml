@@ -62,7 +62,7 @@
     <string name="messaging">Messaging</string>
     <string name="member_since">Member since </string>
     <string name="failed">Failed</string>
-    <string name="my_advertisment">My Adverimant</string>
+    <string name="my_advertisment">My Market</string>
     <string name="upload">Upload product Images</string>
     <string name="perm_image_denied">Permision Images Deined</string>
     <string name="complete_all">Commplete You Information</string>
@@ -156,6 +156,8 @@
     <string name="packge_serv">Packaging service</string>
     <string name="storage_serv">Storage Service</string>
     <string name="services_order">services_order</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
     <string-array name="models">
         <item>Choose</item>
 

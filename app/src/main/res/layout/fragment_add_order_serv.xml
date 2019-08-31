@@ -101,8 +101,8 @@
 
                 />
 
-            <EditText
-                android:id="@+id/edt_time"
+            <TextView
+                android:id="@+id/tv_time"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginTop="15dp"
@@ -159,12 +159,67 @@
                 android:background="@color/gray4"
 
                 />
+            <TextView
+                android:id="@+id/tv_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/from"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                />
+            <TextView
+                android:id="@+id/tv_address_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                />
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+
+                android:layout_marginTop="5dp"
+                android:background="@color/gray4"
+
+                />
+            <TextView
+                android:id="@+id/tv_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/to"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                />
+            <TextView
+                android:id="@+id/tv_address_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                />
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+
+                android:layout_marginTop="5dp"
+                android:background="@color/gray4"
+
+                />
             <fragment
                 android:id="@+id/fragment_map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="250dp"
                 android:layout_marginTop="8dp"
 
                 />

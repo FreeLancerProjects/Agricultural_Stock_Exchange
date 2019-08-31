@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -60,9 +61,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
 import com.squareup.picasso.Picasso;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Locale;
 
 import io.paperdb.Paper;
@@ -73,7 +76,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks, LocationListener, OnMapReadyCallback {
+public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks, LocationListener, OnMapReadyCallback , DatePickerDialog.OnDateSetListener{
     private HomeActivity homeActivity;
     private final String gps_perm = Manifest.permission.ACCESS_FINE_LOCATION;
     private final int gps_req = 22;
@@ -85,7 +88,7 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
     private LocationCallback locationCallback;
     private Location location;
     private boolean stop = false;
-
+    private DatePickerDialog datePickerDialog;
     private Marker marker;
     private GoogleMap mMap;
     private Preferences preferences;
@@ -94,7 +97,9 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
     private ImageView back_arrow;
 
     private ImageView back;
-    private EditText edt_quantity,edt_time,edt_desc;
+    private EditText edt_quantity,edt_desc;
+    private View view1,view2;
+    private TextView tv_time,tv_address_from,tv_address_to,tv_from,tv_to;
     private Button bt_send;
 
     public static Fragment_Add_Order_Serv newInstance() {
@@ -107,6 +112,8 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
         View view = inflater.inflate(R.layout.fragment_add_order_serv, container, false);
         updateUI();
         initView(view);
+        getGeoDatafrom(Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_lat()),Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_long()));
+
         CheckPermission();
 
         return view;
@@ -116,6 +123,9 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
 
         SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragment_map);
         fragment.getMapAsync(this);
+        if(Services_Model.getServi().equals("2")||Services_Model.getServi().equals("3")){
+            fragment.getView().setVisibility(View.GONE);
+        }
 
     }
 
@@ -151,9 +161,14 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
         cuurent_language = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow_back);
 
-
+view1=view.findViewById(R.id.view1);
+view2=view.findViewById(R.id.view2);
         edt_quantity = view.findViewById(R.id.edt_quantity);
-        edt_time=view.findViewById(R.id.edt_time);
+        tv_time=view.findViewById(R.id.tv_time);
+        tv_address_from=view.findViewById(R.id.tv_address_from);
+        tv_address_to=view.findViewById(R.id.tv_address_to);
+        tv_from=view.findViewById(R.id.tv_from);
+        tv_to=view.findViewById(R.id.tv_to);
         edt_desc=view.findViewById(R.id.edt_desc);
         bt_send=view.findViewById(R.id.bt_send);
      //   bt_upgrde = view.findViewById(R.id.bt_upgrade);
@@ -175,25 +190,74 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
                 checkdata();
             }
         });
+       tv_time.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               datePickerDialog.show(homeActivity.getFragmentManager(), "");
+           }
+       });
+        createDatePickerDialog();
+        if(Services_Model.getServi().equals("2")||Services_Model.getServi().equals("3")){
+            tv_address_to.setVisibility(View.INVISIBLE);
+            tv_address_from.setVisibility(View.INVISIBLE);
+            tv_to.setVisibility(View.INVISIBLE);
+            tv_from.setVisibility(View.INVISIBLE);
+            view1.setVisibility(View.INVISIBLE);
+            view2.setVisibility(View.INVISIBLE);
+
+        }
+    }
+    private void createDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
+        datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.dismissOnPause(true);
+        datePickerDialog.setAccentColor(ActivityCompat.getColor(homeActivity, R.color.colorPrimary));
+        datePickerDialog.setCancelColor(ActivityCompat.getColor(homeActivity, R.color.gray4));
+        datePickerDialog.setOkColor(ActivityCompat.getColor(homeActivity, R.color.colorPrimary));
+        // datePickerDialog.setOkText(getString(R.string.select));
+        //datePickerDialog.setCancelText(getString(R.string.cancel));
+        datePickerDialog.setLocale(new Locale(cuurent_language));
+        datePickerDialog.setVersion(DatePickerDialog.Version.VERSION_2);
+        datePickerDialog.setMinDate(calendar);
+
+
+    }
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, monthOfYear + 1);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+
+        // order_time_calender.set(Calendar.YEAR,year);
+        //order_time_calender.set(Calendar.MONTH,monthOfYear);
+        //order_time_calender.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+        Log.e("kkkk", calendar.getTime().getMonth() + "");
+
+        tv_time.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+       //// date=calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)<10?"0"+calendar.get(Calendar.MONTH):calendar.get(Calendar.MONTH))+"-"+(calendar.get(Calendar.DAY_OF_MONTH)<10?"0"+calendar.get(Calendar.DAY_OF_MONTH):calendar.get(Calendar.DAY_OF_MONTH));
+        // date = calendar.get(Calendar.YEAR) + "-" + (calendar.getTime().getMonth()+calendar.getTime().getMonth():calendar.getTime().getMonth()) + "-" + (calendar.getTime().getDay()<10?"0"+calendar.getTime().getDay():calendar.getTime().getDay());
+      //  Log.e("kkk",date);
     }
 
    private void checkdata() {
-        getGeoDatafrom(Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_lat()),Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_long()));
         String quantity = edt_quantity.getText().toString();
-        String time=edt_time.getText().toString();
+        String time=
+                tv_time.getText().toString();
         String decc=edt_desc.getText().toString();
-        if (TextUtils.isEmpty(quantity) || (lat == 0.0 || lng == 0.0) || TextUtils.isEmpty(time)||TextUtils.isEmpty(decc)  || formatedaddress == null) {
+        if (TextUtils.isEmpty(quantity) || ((lat == 0.0 || lng == 0.0)&&Services_Model.getServi().equals("1") )|| TextUtils.isEmpty(time)||TextUtils.isEmpty(decc)  || formatedaddress == null) {
             if (TextUtils.isEmpty(quantity)) {
                 edt_quantity.setError(getResources().getString(R.string.field_req));
             }
             if (TextUtils.isEmpty(time)) {
-                edt_time.setError(getResources().getString(R.string.field_req));
+                tv_time.setError(getResources().getString(R.string.field_req));
             }
             if (TextUtils.isEmpty(decc)) {
                 edt_desc.setError(getResources().getString(R.string.field_req));
             }
 
-            if (lat == 0.0 || lng == 0.0) {
+            if ((lat == 0.0 || lng == 0.0)&&Services_Model.getServi().equals("1")) {
                 Toast.makeText(homeActivity, getResources().getString(R.string.field_req), Toast.LENGTH_LONG).show();
             }
 
@@ -222,7 +286,7 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
                 dialog.dismiss();
                 // dialog.dismiss();
                 if (response.isSuccessful()) {
-                     Common.CreateSignAlertDialog(homeActivity,getResources().getString(R.string.suc));
+                     Common.CreateSignAlertDialog3(homeActivity,getResources().getString(R.string.suc));
                     // preferences = Preferences.getInstance();
                 //    Log.e("ss", response.body().getUser_type());
 
@@ -401,6 +465,7 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
                                 // address.setText(formatedaddress);
                                 //AddMarker(lat, lng);
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();
+                       tv_address_to.setText(formatedaddress);
                              //   Log.e("kkk", formatedaddress);
                             }
                         } else {
@@ -442,6 +507,8 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
 
                             if (response.body().getResults().size() > 0) {
                                 addressfrom = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
+
+                             tv_address_from.setText(addressfrom);
                                 // address.setText(formatedaddress);
                                 //AddMarker(lat, lng);
                                 //place_id = response.body().getCandidates().get(0).getPlace_id();

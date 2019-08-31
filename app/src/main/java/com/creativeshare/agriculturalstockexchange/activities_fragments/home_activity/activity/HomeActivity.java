@@ -698,4 +698,10 @@ public class HomeActivity extends AppCompatActivity {
             fragment_message_notifications.refresh();
         }
     }
+
+    public void Back2() {
+        Back();
+        Back();
+        Back();
+    }
 }

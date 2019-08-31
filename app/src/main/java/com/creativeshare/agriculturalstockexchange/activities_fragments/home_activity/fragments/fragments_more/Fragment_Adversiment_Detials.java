@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.creativeshare.agriculturalstockexchange.BuildConfig;
 import com.creativeshare.agriculturalstockexchange.R;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.chat_activity.ChatActivity;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
@@ -58,9 +59,9 @@ public class Fragment_Adversiment_Detials extends Fragment {
     private String id_advertisement;
     private HomeActivity activity;
     private String cuurent_language;
-    private ImageView back, im_follow,im_mail,image_whatsapp;
+    private ImageView back, im_follow,im_mail,image_whatsapp,im_share;
     private Button bt_ship,bt_packge,bt_storage;
-    private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc,tv_price;
+    private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc,tv_price,tv_service;
     private ViewPager mPager;
     private TabLayout indicator;
     private RecyclerView recyclerView_images, recyclerView_comment;
@@ -116,12 +117,15 @@ public class Fragment_Adversiment_Detials extends Fragment {
         tv_city = view.findViewById(R.id.tv_city);
         tv_desc = view.findViewById(R.id.tv_desc);
         tv_price=view.findViewById(R.id.tv_price);
+        tv_service=view.findViewById(R.id.tv_service);
         //tv_phone = view.findViewById(R.id.tv_phone);
         progBar = view.findViewById(R.id.progBar);
         mPager = view.findViewById(R.id.pager);
         indicator = view.findViewById(R.id.tablayout);
         recyclerView_comment = view.findViewById(R.id.rec_comment);
         recyclerView_images = view.findViewById(R.id.rec_images);
+        im_share=view.findViewById(R.id.im_share);
+
         im_follow = view.findViewById(R.id.im_follow);
         image_whatsapp=view.findViewById(R.id.image_whatsapp);
         im_mail = view.findViewById(R.id.im_mail);
@@ -133,6 +137,22 @@ ll_services=view.findViewById(R.id.ll_service);
         bt_ship=view.findViewById(R.id.bt_ship);
         bt_packge=view.findViewById(R.id.bt_packge);
         bt_storage=view.findViewById(R.id.bt_storage);
+        im_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getResources().getString(R.string.app_name));
+                    String shareMessage= "\nLet me recommend you this application\n\n";
+                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                    startActivity(Intent.createChooser(shareIntent, "choose one"));
+                } catch(Exception e) {
+                    //e.toString();
+                }
+            }
+        });
         bt_ship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -399,6 +419,7 @@ ll_services=view.findViewById(R.id.ll_service);
         if(userModel!=null){
         if (this.adversiting_model.getAdvertisement_user().equals(userModel.getUser_id())) {
             ll_services.setVisibility(View.INVISIBLE);
+            tv_service.setVisibility(View.INVISIBLE);
             //cons_profile.setVisibility(View.INVISIBLE);
             ll_messge.setVisibility(View.INVISIBLE);
            // cons_profile.setVisibility(View.INVISIBLE);

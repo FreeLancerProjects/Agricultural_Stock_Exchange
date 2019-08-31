@@ -16,6 +16,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.creativeshare.agriculturalstockexchange.R;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
+import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
 import com.creativeshare.agriculturalstockexchange.share.Common;
@@ -104,8 +105,11 @@ public class Fragment_Home extends Fragment {
 
                         break;
                     case 2:
-                        homeActivity.DisplayFragmentProile();
+                        if(userModel!=null) {
+                            Adversiment_Model.setId(null);
 
+                            homeActivity.DisplayFragmentProile();
+                        }
                         break;
                     case 3:
                         homeActivity.DisplayFragmentMore();

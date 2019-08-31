@@ -264,7 +264,7 @@ try {
         else {
             insurancetype="1";
         }
-        Api.getService().storage_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
+        Api.getService().packaging_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 dialog.dismiss();
@@ -313,7 +313,7 @@ try {
         else {
             insurancetype="1";
         }
-        Api.getService().shipping_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
+        Api.getService().storage_serv(userModel.getUser_id(),insurancetype).enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                 dialog.dismiss();
@@ -527,7 +527,7 @@ try {
       //  Log.e("llll",userModel.getInsurance_services());
         if (userModel != null) {
             if (userModel.getUser_image() != null && !userModel.getUser_image().equals("0")) {
-                Picasso.with(homeActivity).load(Tags.IMAGE_URL + userModel.getUser_image()).fit().into(imageprofile);
+                Picasso.with(homeActivity).load(Tags.IMAGE_URL + userModel.getUser_image()).placeholder(R.drawable.logo).fit().into(imageprofile);
             }
             if (userModel.getUser_name() != null) {
                 tv_name.setText(userModel.getUser_name());
