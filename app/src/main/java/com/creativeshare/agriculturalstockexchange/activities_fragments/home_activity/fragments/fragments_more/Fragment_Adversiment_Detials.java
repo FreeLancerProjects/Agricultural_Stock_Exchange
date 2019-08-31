@@ -60,7 +60,7 @@ public class Fragment_Adversiment_Detials extends Fragment {
     private String cuurent_language;
     private ImageView back, im_follow,im_mail,image_whatsapp;
     private Button bt_ship,bt_packge,bt_storage;
-    private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc;
+    private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc,tv_price;
     private ViewPager mPager;
     private TabLayout indicator;
     private RecyclerView recyclerView_images, recyclerView_comment;
@@ -115,6 +115,7 @@ public class Fragment_Adversiment_Detials extends Fragment {
         tv_name = view.findViewById(R.id.tv_name);
         tv_city = view.findViewById(R.id.tv_city);
         tv_desc = view.findViewById(R.id.tv_desc);
+        tv_price=view.findViewById(R.id.tv_price);
         //tv_phone = view.findViewById(R.id.tv_phone);
         progBar = view.findViewById(R.id.progBar);
         mPager = view.findViewById(R.id.pager);
@@ -245,8 +246,9 @@ ll_services=view.findViewById(R.id.ll_service);
             @Override
             public void onClick(View view) {
                 if (userModel != null) {
+                    if(!userModel.getUser_id().equals(adversiting_model.getAdvertisement_user())){
                     Adversiment_Model.setId(adversiting_model.getAdvertisement_user());
-                    activity.DisplayFragmentProfile();
+                    activity.DisplayFragmentProfile();}
                 }
                 else {
                     Common.CreateUserNotSignInAlertDialog(activity);
@@ -397,9 +399,9 @@ ll_services=view.findViewById(R.id.ll_service);
         if(userModel!=null){
         if (this.adversiting_model.getAdvertisement_user().equals(userModel.getUser_id())) {
             ll_services.setVisibility(View.INVISIBLE);
-            cons_profile.setVisibility(View.INVISIBLE);
+            //cons_profile.setVisibility(View.INVISIBLE);
             ll_messge.setVisibility(View.INVISIBLE);
-            cons_profile.setVisibility(View.INVISIBLE);
+           // cons_profile.setVisibility(View.INVISIBLE);
         }}
 
         tv_time.setText(Time_Ago.getTimeAgo(Long.parseLong(advertsing.getAdvertisement_date()), activity));
@@ -409,6 +411,7 @@ ll_services=view.findViewById(R.id.ll_service);
         //tv_phone.setText(advertsing.getPhone());
         tv_city.setText(advertsing.getCity_title());
         tv_desc.setText(advertsing.getAdvertisement_content());
+        tv_price.setText(advertsing.getAdvertisement_price());
         //tv_coomericail.setText(advertsing.getAdvertisement_code());
         progBar.setVisibility(View.GONE);
         NUM_PAGES = advertsing.getAdvertisement_images().size();

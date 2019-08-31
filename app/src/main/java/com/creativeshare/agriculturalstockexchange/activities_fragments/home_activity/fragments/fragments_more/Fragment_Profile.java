@@ -565,19 +565,20 @@ try {
                 simpleRatingBar.setRating(userModel.getRating_value());
 
             }
-            if(userModel.getShipping_serv().equals("0")){
+
+            if(userModel.getShipping_serv()!=null&&userModel.getShipping_serv().equals("0")){
                 switchCompat.setChecked(false);
             }
             else {
                 switchCompat.setChecked(true);
             }
-            if(userModel.getPackaging_serv().equals("0")){
+            if(userModel.getPackaging_serv()!=null&&userModel.getPackaging_serv().equals("0")){
                 switchCompatpackge.setChecked(false);
             }
             else {
                 switchCompatpackge.setChecked(true);
             }
-            if(userModel.getStorage_serv().equals("0")){
+            if(userModel.getStorage_serv()!=null&&userModel.getStorage_serv().equals("0")){
                 switchCompatstorage.setChecked(false);
             }
             else {

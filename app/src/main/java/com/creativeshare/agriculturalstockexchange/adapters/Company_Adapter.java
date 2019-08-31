@@ -71,15 +71,15 @@ public class Company_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ((MyHolder) holder).tv_phone.setText(advertsing.getUser_phone());
         ((MyHolder) holder).tv_address.setText(advertsing.getUser_address());
         if (advertsing.getShipping_serv().equals("1")) {
-            type += context.getResources().getString(R.string.Shipping);
+            type +=" "+ context.getResources().getString(R.string.Shipping);
 
         }
         if (advertsing.getPackaging_serv().equals("1")) {
-            type += context.getResources().getString(R.string.Packaging);
+            type += " "+context.getResources().getString(R.string.Packaging);
 
         }
         if (advertsing.getStorage_serv().equals("1")) {
-            type += context.getResources().getString(R.string.Storage);
+            type += " "+context.getResources().getString(R.string.Storage);
 
         }
         ((MyHolder) holder).tv_type.setText(type);
