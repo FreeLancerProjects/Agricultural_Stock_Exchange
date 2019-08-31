@@ -309,13 +309,16 @@ app:layout_constraintStart_toEndOf="@+id/im4"                         />
                         android:layout_height="45dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:layout_weight="1"
+
                         android:background="@drawable/bt_shape"
                         android:text="@string/contact_user"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:padding="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+
+                        android:layout_weight="1"
                         />
 
                     <View
