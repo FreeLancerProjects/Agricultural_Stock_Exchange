@@ -3,6 +3,7 @@ package com.creativeshare.agriculturalstockexchange.activities_fragments.home_ac
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,7 +58,8 @@ public class Fragment_Adversiment_Detials extends Fragment {
     private String id_advertisement;
     private HomeActivity activity;
     private String cuurent_language;
-    private ImageView back, im_follow,im_mail;
+    private ImageView back, im_follow,im_mail,image_whatsapp;
+    private Button bt_ship,bt_packge,bt_storage;
     private TextView tv_title, tv_time,  tv_name, tv_city, tv_desc;
     private ViewPager mPager;
     private TabLayout indicator;
@@ -119,12 +122,37 @@ public class Fragment_Adversiment_Detials extends Fragment {
         recyclerView_comment = view.findViewById(R.id.rec_comment);
         recyclerView_images = view.findViewById(R.id.rec_images);
         im_follow = view.findViewById(R.id.im_follow);
+        image_whatsapp=view.findViewById(R.id.image_whatsapp);
         im_mail = view.findViewById(R.id.im_mail);
 ll_messge=view.findViewById(R.id.ll_messaging);
 ll_services=view.findViewById(R.id.ll_service);
         cons_comment = view.findViewById(R.id.cons_comment);
         edt_comment = view.findViewById(R.id.edt_comment);
         cons_profile = view.findViewById(R.id.cons_profile);
+        bt_ship=view.findViewById(R.id.bt_ship);
+        bt_packge=view.findViewById(R.id.bt_packge);
+        bt_storage=view.findViewById(R.id.bt_storage);
+        bt_ship.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Adversiment_Model.setServi("1");
+                activity.DisplayFragmentCompany();
+            }
+        });
+        bt_packge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Adversiment_Model.setServi("2");
+                activity.DisplayFragmentCompany();
+            }
+        });
+        bt_storage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Adversiment_Model.setServi("3");
+                activity.DisplayFragmentCompany();
+            }
+        });
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         // preferences = Preferences.getInstance();
         recyclerView_images.setDrawingCacheEnabled(true);
@@ -191,6 +219,15 @@ ll_services=view.findViewById(R.id.ll_service);
                 }
             }
         });
+        image_whatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("whatsapp://send?phone=+966"+adversiting_model.getPhone()));
+                startActivity(intent);
+            }
+        });
+
+
         cons_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

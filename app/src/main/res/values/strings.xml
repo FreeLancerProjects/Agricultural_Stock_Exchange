@@ -146,6 +146,13 @@
     <string name="ship_service">Shipping service</string>
     <string name="services">Services</string>
     <string name="contact_user">Contact User</string>
+    <string name="company">Company</string>
+    <string name="Shipping">Shipping</string>
+    <string name="Packaging">Packaging</string>
+    <string name="Storage">Storage</string>
+    <string name="quantity">Quantity</string>
+    <string name="time">Time</string>
+    <string name="descraption">Descraption</string>
     <string name="packge_serv">Packaging service</string>
     <string name="storage_serv">Storage Service</string>
     <string-array name="models">

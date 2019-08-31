@@ -26,8 +26,10 @@ import com.creativeshare.agriculturalstockexchange.activities_fragments.home_act
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_insurance_cars.Fragment_insurance_car;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_About;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Add_Car;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Add_Order_Serv;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Adversiment_Detials;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_App_Percentage;
+import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Company;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Edit_Profile;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_Follower_List;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.fragments.fragments_more.Fragment_More;
@@ -72,6 +74,8 @@ public class HomeActivity extends AppCompatActivity {
     private Fragment_Message_Notifications fragment_message_notifications;
     private Fragment_Profile fragment_profile;
     private Fragment_Car_Search fragment_car_search;
+    private Fragment_Company fragment_company;
+    private Fragment_Add_Order_Serv fragment_add_order_serv;
     private Fragment_More fragment_more;
     private Fragment_Follower_List fragment_follower_list;
     private Fragment_Terms_Conditions fragmentTerms_conditions;
@@ -283,6 +287,34 @@ public class HomeActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().show(fragment_my_adversiment).commit();
         } else {
             fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_my_adversiment, "fragment_my_adversiment").addToBackStack("fragment_my_adversiment").commit();
+
+        }
+
+    }
+    public void DisplayFragmentCompany() {
+
+        fragment_count += 1;
+        fragment_company = Fragment_Company.newInstance();
+
+
+        if (fragment_company.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_company).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_company, "fragment_company").addToBackStack("fragment_company").commit();
+
+        }
+
+    }
+    public void DisplayFragmentAddorder() {
+
+        fragment_count += 1;
+        fragment_add_order_serv = Fragment_Add_Order_Serv.newInstance();
+
+
+        if (fragment_add_order_serv.isAdded()) {
+            fragmentManager.beginTransaction().show(fragment_add_order_serv).commit();
+        } else {
+            fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_add_order_serv, "fragment_add_order_serv").addToBackStack("fragment_add_order_serv").commit();
 
         }
 

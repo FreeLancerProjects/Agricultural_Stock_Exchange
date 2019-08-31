@@ -7,6 +7,7 @@ import com.creativeshare.agriculturalstockexchange.models.AppDataModel;
 import com.creativeshare.agriculturalstockexchange.models.App_Commission;
 import com.creativeshare.agriculturalstockexchange.models.Catogry_Model;
 import com.creativeshare.agriculturalstockexchange.models.CityModel;
+import com.creativeshare.agriculturalstockexchange.models.Company_Model;
 import com.creativeshare.agriculturalstockexchange.models.Follower_Model;
 import com.creativeshare.agriculturalstockexchange.models.Insuarce_Data_Model;
 import com.creativeshare.agriculturalstockexchange.models.Insuarce_Model;
@@ -505,5 +506,9 @@ public interface Service {
             @Field("id_advertisement") String id_advertisement
 
 
+    );
+
+    @GET("Insurance/getCom")
+    Call<Company_Model> Showcompany(@Query("serv_id") String serv_id
     );
 }
