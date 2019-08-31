@@ -135,21 +135,24 @@ ll_services=view.findViewById(R.id.ll_service);
         bt_ship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Adversiment_Model.setServi("1");
-                activity.DisplayFragmentCompany();
+                Services_Model.setServi("1");
+                Services_Model.setAdversiting_model(adversiting_model);                activity.DisplayFragmentCompany();
             }
         });
         bt_packge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Adversiment_Model.setServi("2");
+
+                Services_Model.setServi("2");
+                Services_Model.setAdversiting_model(adversiting_model);
                 activity.DisplayFragmentCompany();
             }
         });
         bt_storage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Adversiment_Model.setServi("3");
+                Services_Model.setServi("3");
+                Services_Model.setAdversiting_model(adversiting_model);
                 activity.DisplayFragmentCompany();
             }
         });

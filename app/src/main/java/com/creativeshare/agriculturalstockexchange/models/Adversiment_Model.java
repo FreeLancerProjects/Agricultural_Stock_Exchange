@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Adversiment_Model implements Serializable {
     private static String id;
-    private static String servi;
 
     private static Adversiting_Model adversiting_model;
     private String city_id;
@@ -20,13 +19,7 @@ private String type;
 //private String palte;
 private String piece;
 
-    public static String getServi() {
-        return servi;
-    }
 
-    public static void setServi(String servi) {
-        Adversiment_Model.servi = servi;
-    }
 
     public static void setId(String id) {
         Adversiment_Model.id = id;

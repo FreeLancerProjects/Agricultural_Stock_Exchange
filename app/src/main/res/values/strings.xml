@@ -155,6 +155,7 @@
     <string name="descraption">Descraption</string>
     <string name="packge_serv">Packaging service</string>
     <string name="storage_serv">Storage Service</string>
+    <string name="services_order">services_order</string>
     <string-array name="models">
         <item>Choose</item>
 

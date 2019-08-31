@@ -18,6 +18,7 @@ import com.creativeshare.agriculturalstockexchange.R;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
 import com.creativeshare.agriculturalstockexchange.models.Catogry_Model;
 import com.creativeshare.agriculturalstockexchange.models.Company_Model;
+import com.creativeshare.agriculturalstockexchange.models.Services_Model;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
 import com.creativeshare.agriculturalstockexchange.tags.Tags;
@@ -38,14 +39,15 @@ public class Company_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private HomeActivity activity;
     private Preferences preferences;
     private UserModel userModel;
+
     public Company_Adapter(List<Company_Model.Data> advertsings, Context context) {
 
         this.advertsings = advertsings;
         this.context = context;
-       // this.fragment = fragment;
-        activity=(HomeActivity)context;
-        preferences=Preferences.getInstance();
-        userModel=preferences.getUserData(activity);
+        // this.fragment = fragment;
+        activity = (HomeActivity) context;
+        preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(activity);
     }
 
     @NonNull
@@ -53,8 +55,8 @@ public class Company_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-            View view = LayoutInflater.from(context).inflate(R.layout.company_row, parent, false);
-            return new MyHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.company_row, parent, false);
+        return new MyHolder(view);
 
 
     }
@@ -62,35 +64,37 @@ public class Company_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
 
-String type=context.getResources().getString(R.string.company);
-            final MyHolder myHolder = (MyHolder) holder;
-            final Company_Model.Data advertsing = advertsings.get(myHolder.getAdapterPosition());
-            ((MyHolder) holder).tv_name.setText(advertsing.getUser_name());
-            ((MyHolder) holder).tv_phone.setText(advertsing.getUser_phone());
-            ((MyHolder) holder).tv_address.setText(advertsing.getUser_address());
-   if(advertsing.getShipping_serv().equals("1")){
-       type+=context.getResources().getString(R.string.Shipping);
+        String type = context.getResources().getString(R.string.company);
+        final MyHolder myHolder = (MyHolder) holder;
+        final Company_Model.Data advertsing = advertsings.get(myHolder.getAdapterPosition());
+        ((MyHolder) holder).tv_name.setText(advertsing.getUser_name());
+        ((MyHolder) holder).tv_phone.setText(advertsing.getUser_phone());
+        ((MyHolder) holder).tv_address.setText(advertsing.getUser_address());
+        if (advertsing.getShipping_serv().equals("1")) {
+            type += context.getResources().getString(R.string.Shipping);
 
-   }
-        if(advertsing.getPackaging_serv().equals("1")){
-            type+=context.getResources().getString(R.string.Packaging);
+        }
+        if (advertsing.getPackaging_serv().equals("1")) {
+            type += context.getResources().getString(R.string.Packaging);
 
-        } if(advertsing.getStorage_serv().equals("1")){
-            type+=context.getResources().getString(R.string.Storage);
+        }
+        if (advertsing.getStorage_serv().equals("1")) {
+            type += context.getResources().getString(R.string.Storage);
 
         }
         ((MyHolder) holder).tv_type.setText(type);
 
 
-        Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL+advertsing.getUser_image())).fit().into(((MyHolder) holder).image);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        Picasso.with(context).load(Uri.parse(Tags.IMAGE_URL + advertsing.getUser_image())).placeholder(R.drawable.logo).fit().into(((MyHolder) holder).image);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Services_Model.setCompany_id(advertsings.get(holder.getLayoutPosition()).getUser_id());
+                activity.DisplayFragmentAddorder();
+                //   activity.DisplayFragmentAdversimentDetials(advertsings.get(holder.getLayoutPosition()).getId_advertisement());
 
-                 //   activity.DisplayFragmentAdversimentDetials(advertsings.get(holder.getLayoutPosition()).getId_advertisement());
-
-                }
-            });
+            }
+        });
 
     }
 
@@ -108,7 +112,7 @@ String type=context.getResources().getString(R.string.company);
             super(itemView);
 
             image = itemView.findViewById(R.id.r_im_search);
-            tv_name= itemView.findViewById(R.id.tv_name);
+            tv_name = itemView.findViewById(R.id.tv_name);
 
             tv_phone = itemView.findViewById(R.id.tv_phone);
             tv_type = itemView.findViewById(R.id.tv_type);

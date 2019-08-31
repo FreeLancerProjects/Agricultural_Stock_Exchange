@@ -27,6 +27,7 @@ import com.creativeshare.agriculturalstockexchange.adapters.Company_Adapter;
 import com.creativeshare.agriculturalstockexchange.models.Adversiment_Model;
 import com.creativeshare.agriculturalstockexchange.models.Catogry_Model;
 import com.creativeshare.agriculturalstockexchange.models.Company_Model;
+import com.creativeshare.agriculturalstockexchange.models.Services_Model;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
 import com.creativeshare.agriculturalstockexchange.remote.Api;
@@ -125,7 +126,7 @@ private LinearLayout ll_no_order;
         progBar.setVisibility(View.VISIBLE);
         ll_no_order.setVisibility(View.GONE);
         Api.getService()
-                .Showcompany(Adversiment_Model.getServi())
+                .Showcompany(Services_Model.getServi())
                 .enqueue(new Callback<Company_Model>() {
                     @Override
                     public void onResponse(Call<Company_Model> call, Response<Company_Model> response) {

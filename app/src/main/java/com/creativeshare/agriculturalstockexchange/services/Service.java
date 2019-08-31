@@ -508,7 +508,26 @@ public interface Service {
 
     );
 
-    @GET("Insurance/getCom")
+    @GET("Insurance/getComp")
     Call<Company_Model> Showcompany(@Query("serv_id") String serv_id
     );
+
+    @FormUrlEncoded
+    @POST("Insurance/add")
+    Call<ResponseBody> sendservicorder
+            (@Field("user_id") String user_id,
+             @Field("serv_id") String serv_id,
+             @Field("amount") String amount,
+             @Field("apppoiment") String apppoiment,
+             @Field("amount_desc") String amount_desc,
+             @Field("from_address") String from_address,
+             @Field("from_lat") String from_lat,
+             @Field("from_long") String from_long,
+             @Field("to_address") String to_address,
+             @Field("to_lat") String to_lat,
+             @Field("to_long") String to_long,
+             @Field("comp_id") String comp_id,
+             @Field("id_advertisement") String id_advertisement
+
+            );
 }

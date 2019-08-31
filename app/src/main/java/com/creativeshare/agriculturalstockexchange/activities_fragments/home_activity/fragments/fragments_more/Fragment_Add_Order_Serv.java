@@ -31,6 +31,7 @@ import androidx.fragment.app.Fragment;
 import com.creativeshare.agriculturalstockexchange.R;
 import com.creativeshare.agriculturalstockexchange.activities_fragments.home_activity.activity.HomeActivity;
 import com.creativeshare.agriculturalstockexchange.models.PlaceGeocodeData;
+import com.creativeshare.agriculturalstockexchange.models.Services_Model;
 import com.creativeshare.agriculturalstockexchange.models.UserModel;
 import com.creativeshare.agriculturalstockexchange.preferences.Preferences;
 import com.creativeshare.agriculturalstockexchange.remote.Api;
@@ -67,6 +68,7 @@ import java.util.Locale;
 import io.paperdb.Paper;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,12 +90,12 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
     private GoogleMap mMap;
     private Preferences preferences;
     private UserModel userModel;
-    private String cuurent_language, formatedaddress;
+    private String cuurent_language, formatedaddress,addressfrom;
     private ImageView back_arrow;
 
     private ImageView back;
-   // private EditText edt_name;
-   // private Button bt_upgrde;
+    private EditText edt_quantity,edt_time,edt_desc;
+    private Button bt_send;
 
     public static Fragment_Add_Order_Serv newInstance() {
         return new Fragment_Add_Order_Serv();
@@ -149,7 +151,11 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
         cuurent_language = Paper.book().read("lang", Locale.getDefault().getLanguage());
         back_arrow = view.findViewById(R.id.arrow_back);
 
-        //edt_name = view.findViewById(R.id.edt_name);
+
+        edt_quantity = view.findViewById(R.id.edt_quantity);
+        edt_time=view.findViewById(R.id.edt_time);
+        edt_desc=view.findViewById(R.id.edt_desc);
+        bt_send=view.findViewById(R.id.bt_send);
      //   bt_upgrde = view.findViewById(R.id.bt_upgrade);
         if (cuurent_language.equals("en")) {
 
@@ -163,21 +169,31 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
             }
         });
 
-     /*   bt_upgrde.setOnClickListener(new View.OnClickListener() {
+       bt_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkdata();
             }
-        });*/
+        });
     }
 
-  /*  private void checkdata() {
-        String name = edt_name.getText().toString();
-        if (TextUtils.isEmpty(name) || (lat == 0.0 || lng == 0.0) || uri == null || formatedaddress == null) {
-            if (TextUtils.isEmpty(name)) {
-                edt_name.setError(getResources().getString(R.string.field_req));
+   private void checkdata() {
+        getGeoDatafrom(Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_lat()),Double.parseDouble(Services_Model.getAdversiting_model().getGoogle_long()));
+        String quantity = edt_quantity.getText().toString();
+        String time=edt_time.getText().toString();
+        String decc=edt_desc.getText().toString();
+        if (TextUtils.isEmpty(quantity) || (lat == 0.0 || lng == 0.0) || TextUtils.isEmpty(time)||TextUtils.isEmpty(decc)  || formatedaddress == null) {
+            if (TextUtils.isEmpty(quantity)) {
+                edt_quantity.setError(getResources().getString(R.string.field_req));
             }
-            if (lat == 0.0 || lng == 0.0 || uri == null) {
+            if (TextUtils.isEmpty(time)) {
+                edt_time.setError(getResources().getString(R.string.field_req));
+            }
+            if (TextUtils.isEmpty(decc)) {
+                edt_desc.setError(getResources().getString(R.string.field_req));
+            }
+
+            if (lat == 0.0 || lng == 0.0) {
                 Toast.makeText(homeActivity, getResources().getString(R.string.field_req), Toast.LENGTH_LONG).show();
             }
 
@@ -188,38 +204,31 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
                 getGeoData(lat, lng);
             }
            // Log.e("kklkkl", formatedaddress);
-            upgrade(name, uri, lat, lng, formatedaddress);
+            upgrade(quantity,time, decc, lat, lng, formatedaddress);
         }
     }
 
-    private void upgrade(String name, Uri uri, double lat, double lng, String formatedaddress) {
+    private void upgrade(String quantity, String time,String desc, double lat, double lng, String formatedaddress) {
       //  Log.e("kkkl", formatedaddress);
 
         final Dialog dialog = Common.createProgressDialog(homeActivity, getString(R.string.wait));
         dialog.show();
-        RequestBody user_part = Common.getRequestBodyText(userModel.getUser_id());
-        RequestBody lat_part = Common.getRequestBodyText(lat + "");
-        RequestBody long_part = Common.getRequestBodyText(lng + "");
-        RequestBody address_part = Common.getRequestBodyText(formatedaddress);
-        RequestBody name_part = Common.getRequestBodyText(name);
 
-
-        MultipartBody.Part image_part = Common.getMultiPart(homeActivity, uri, "commercial_register");
 //        Log.e("Error", lat + " " + lng + " " + userModel.getUser_id() + "  " + name + "  " + formatedaddress + " " + uri);
 
-        Api.getService().upgrademarket(user_part, lat_part, long_part, name_part, address_part, image_part).enqueue(new Callback<UserModel>() {
+        Api.getService().sendservicorder(userModel.getUser_id(), Services_Model.getServi(),quantity ,time,desc, addressfrom, Services_Model.getAdversiting_model().getGoogle_lat(), Services_Model.getAdversiting_model().getGoogle_long(),formatedaddress,lat+"",lng+"",Services_Model.getCompany_id(),Services_Model.getAdversiting_model().getId_advertisement()).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 dialog.dismiss();
                 // dialog.dismiss();
                 if (response.isSuccessful()) {
-                    // Common.CreateSignAlertDialog(adsActivity,getResources().getString(R.string.suc));
+                     Common.CreateSignAlertDialog(homeActivity,getResources().getString(R.string.suc));
                     // preferences = Preferences.getInstance();
                 //    Log.e("ss", response.body().getUser_type());
 
-                    preferences.create_update_userdata(homeActivity, response.body());
+                 //   preferences.create_update_userdata(homeActivity, response.body());
                     // Common.CreateSignAlertDialog(homeActivity, getResources().getString(R.string.suc));
-                    homeActivity.RefreshActivity(cuurent_language);
+                   // homeActivity.RefreshActivity(cuurent_language);
 
                 } else {
                     try {
@@ -235,7 +244,7 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
             }
 
             @Override
-            public void onFailure(Call<UserModel> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 dialog.dismiss();
                 try {
                     Toast.makeText(homeActivity, getString(R.string.something), Toast.LENGTH_SHORT).show();
@@ -249,7 +258,7 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
 
     }
 
-*/
+
 
     private void CheckPermission() {
         if (ActivityCompat.checkSelfPermission(homeActivity, gps_perm) != PackageManager.PERMISSION_GRANTED) {
@@ -420,6 +429,49 @@ public class Fragment_Add_Order_Serv extends Fragment implements GoogleApiClient
                 });
     }
 
+    private void getGeoDatafrom(final double lat, final double lng) {
+
+        String location = lat + "," + lng;
+        Api.getService("https://maps.googleapis.com/maps/api/")
+                .getGeoData(location, cuurent_language, getString(R.string.map_api_key))
+                .enqueue(new Callback<PlaceGeocodeData>() {
+                    @Override
+                    public void onResponse(Call<PlaceGeocodeData> call, Response<PlaceGeocodeData> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+
+
+                            if (response.body().getResults().size() > 0) {
+                                addressfrom = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
+                                // address.setText(formatedaddress);
+                                //AddMarker(lat, lng);
+                                //place_id = response.body().getCandidates().get(0).getPlace_id();
+                                //   Log.e("kkk", formatedaddress);
+                            }
+                        } else {
+                            Log.e("error_code", response.errorBody() + " " + response.code());
+
+                            try {
+                                Log.e("error_code", response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<PlaceGeocodeData> call, Throwable t) {
+                        try {
+
+
+                            // Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_LONG).show();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
+    }
 
 
 

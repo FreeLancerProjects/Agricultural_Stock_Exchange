@@ -145,19 +145,20 @@
     <string name="i_found_it">وجدتها</string>
     <string name="You_can_not_edit">لا يمكنك التعديل</string>
     <string name="car_owner">اسم صاحب السياره</string>
-    <string name="company">Company</string>
-    <string name="Shipping">Shipping</string>
-    <string name="Packaging">Packaging</string>
-    <string name="Storage">Storage</string>
-    <string name="quantity">Quantity</string>
-    <string name="time">Time</string>
-    <string name="descraption">Descraption</string>
+    <string name="company">شركه</string>
+    <string name="Shipping">شحن</string>
+    <string name="Packaging">تغليف</string>
+    <string name="Storage">تخزين</string>
+    <string name="quantity">الكميه</string>
+    <string name="time">الموعد</string>
+    <string name="descraption">تفاصيل</string>
     <string name="services">الخدمات</string>
     <string name="contact_user">اتصل بالمستخدم</string>
     <string name="packge_serv">خدمة التغليف</string>
     <string name="ship_service">خدمة الشحن</string>
 
     <string name="storage_serv">خدمة التخزين</string>
+    <string name="services_order">طلب خدمة</string>
 
     <string-array name="models">
         <item>اختر</item>
