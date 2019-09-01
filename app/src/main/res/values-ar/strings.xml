@@ -161,6 +161,7 @@
     <string name="services_order">طلب خدمة</string>
     <string name="from">من</string>
     <string name="to">إلى</string>
+    <string name="view_request_data">View Request Data</string>
 
     <string-array name="models">
         <item>اختر</item>

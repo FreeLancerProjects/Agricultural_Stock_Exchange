@@ -3,79 +3,94 @@ package com.creativeshare.agriculturalstockexchange.models;
 import java.io.Serializable;
 
 public class Insuarce_Model implements Serializable {
-private String request_id;
-        private String car_owner_id;
-        private String car_owner_phone;
-        private String car_owner_name;
-        private String insurance_user_id;
-        private String insurance_type;
-        private String personal_id_num;
-        private String personal_id_date;
-        private String form_image;
-        private String car_image;
-        private String car_model;
-        private String car_type;
-       private String date;
-       private String offer_value;
-       private String insurance_user_name;
+ private String request_id;
+    private String user_id;
+    private String comp_id;
+    private String serv_id;
+    private String id_advertisement;
+    private String amount;
+    private String apppoiment;
+    private String amount_desc;
+    private String from_address;
+    private String from_lat;
+    private String from_long;
+    private String to_address;
+    private String to_lat;
+    private String to_long;
+    private String date;
+    private String from_user_name;
+    private String comp_name;
+    private String offer_value;
 
-        public String getRequest_id() {
-                return request_id;
-        }
+    public String getRequest_id() {
+        return request_id;
+    }
 
-        public String getCar_owner_id() {
-                return car_owner_id;
-        }
+    public String getUser_id() {
+        return user_id;
+    }
 
-        public String getCar_owner_phone() {
-                return car_owner_phone;
-        }
+    public String getComp_id() {
+        return comp_id;
+    }
 
-        public String getCar_owner_name() {
-                return car_owner_name;
-        }
+    public String getServ_id() {
+        return serv_id;
+    }
 
-        public String getInsurance_user_id() {
-                return insurance_user_id;
-        }
+    public String getId_advertisement() {
+        return id_advertisement;
+    }
 
-        public String getInsurance_type() {
-                return insurance_type;
-        }
+    public String getAmount() {
+        return amount;
+    }
 
-        public String getPersonal_id_num() {
-                return personal_id_num;
-        }
+    public String getApppoiment() {
+        return apppoiment;
+    }
 
-        public String getPersonal_id_date() {
-                return personal_id_date;
-        }
+    public String getAmount_desc() {
+        return amount_desc;
+    }
 
-        public String getForm_image() {
-                return form_image;
-        }
+    public String getFrom_address() {
+        return from_address;
+    }
 
-        public String getCar_image() {
-                return car_image;
-        }
+    public String getFrom_lat() {
+        return from_lat;
+    }
 
-        public String getCar_model() {
-                return car_model;
-        }
+    public String getFrom_long() {
+        return from_long;
+    }
 
-        public String getCar_type() {
-                return car_type;
-        }
+    public String getTo_address() {
+        return to_address;
+    }
 
-        public String getDate() {
-                return date;
-        }
+    public String getTo_lat() {
+        return to_lat;
+    }
 
-        public String getOffer_value() {
-                return offer_value;
-        }
+    public String getTo_long() {
+        return to_long;
+    }
 
-        public String getInsurance_user_name() {
-                return insurance_user_name;
-        }
+    public String getDate() {
+        return date;
+    }
+
+    public String getFrom_user_name() {
+        return from_user_name;
+    }
+
+    public String getComp_name() {
+        return comp_name;
+    }
+
+    public String getOffer_value() {
+        return offer_value;
+    }
 }

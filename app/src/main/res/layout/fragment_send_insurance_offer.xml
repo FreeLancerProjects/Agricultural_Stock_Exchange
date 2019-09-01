@@ -61,25 +61,31 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:text="@string/view_insurance_data"
+                android:text="@string/view_request_data"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray3"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/user_phone"
+                android:text="@string/name"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 />
             <TextView
-                android:id="@+id/tv_phone"
+                android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/user_phone"
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -93,55 +99,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/name_of_the_owner_of_the_car"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                />
-            <TextView
-                android:id="@+id/tv_owner_name"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="@string/name_of_the_owner_of_the_car"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/gray3"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="@string/residency_number"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                />
-            <TextView
-                android:id="@+id/tv_idnume"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="@string/residency_number"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/gray3"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="@string/Date_expire_residence"
+                android:text="@string/time"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -151,7 +109,7 @@
                 android:id="@+id/tv_time"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/Date_expire_residence"
+                android:text="@string/time"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -165,17 +123,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/car_model"
+                android:text="@string/quantity"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 />
             <TextView
-                android:id="@+id/tv_model"
+                android:id="@+id/tv_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/car_model"
+                android:text="@string/quantity"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -189,17 +147,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/car_type"
+                android:text="@string/descraption"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 />
             <TextView
-                android:id="@+id/tv_type"
+                android:id="@+id/tv_desc"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="@string/car_type"
+                android:text="@string/descraption"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
@@ -210,89 +168,54 @@
                 android:layout_height="1px"
                 android:background="@color/gray3"/>
 
-            <LinearLayout
-
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
+                android:text="@string/from"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/linear_shape"
-                android:orientation="horizontal"
-
-                >
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:gravity="center"
-                        android:text="@string/image_car"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-
-                    <FrameLayout
-                        android:id="@+id/fl1"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:background="@drawable/linear_shape">
-
-                        <com.makeramen.roundedimageview.RoundedImageView
-                            android:id="@+id/image_car"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:riv_border_color="@color/gray4"
-                            app:riv_border_width="1dp"
-                            app:riv_corner_radius="10dp" />
-
-
-                    </FrameLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingBottom="15dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:text="@string/image_form"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        android:textSize="15sp" />
+                />
+            <TextView
+                android:id="@+id/tv_from"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/from"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray3"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/to"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                />
+            <TextView
+                android:id="@+id/tv_to"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/from"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray3"/>
 
 
-                    <FrameLayout
-                        android:id="@+id/fl2"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:background="@drawable/linear_shape">
-
-                        <com.makeramen.roundedimageview.RoundedImageView
-                            android:id="@+id/image_form"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:riv_border_color="@color/gray4"
-                            app:riv_border_width="1dp"
-                            app:riv_corner_radius="10dp" />
-
-
-                    </FrameLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
 <EditText
     android:id="@+id/edt_offer"
     android:layout_width="match_parent"

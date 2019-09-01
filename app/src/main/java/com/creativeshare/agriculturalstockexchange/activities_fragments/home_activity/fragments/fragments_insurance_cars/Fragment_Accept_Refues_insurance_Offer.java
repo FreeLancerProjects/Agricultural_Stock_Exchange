@@ -49,8 +49,7 @@ public class Fragment_Accept_Refues_insurance_Offer extends Fragment {
     private UserModel userModel;
 
     private ImageView back_arrow;
-    private TextView tv_offer, tv_phone, tv_ownername, tv_idnum, tv_time, tv_model, tv_type;
-    private RoundedImageView imagecar, imageform;
+    private TextView tv_offer, tv_name, tv_time, tv_quantity, tv_desc, tv_from, tv_to;
     private Button bt_accept, bt_refues;
 
     public static Fragment_Accept_Refues_insurance_Offer newInstance(Notification_Model.Data data) {
@@ -102,16 +101,13 @@ public class Fragment_Accept_Refues_insurance_Offer extends Fragment {
     }
 
     private void updatedata(Insuarce_Model body) {
-        tv_phone.setText(body.getCar_owner_phone());
-        tv_ownername.setText(body.getCar_owner_name());
-        tv_idnum.setText(body.getPersonal_id_num());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm aa", Locale.ENGLISH);
-        String date = dateFormat.format(new Date(Long.parseLong(body.getDate()) * 1000));
-        tv_time.setText(date);
-        tv_model.setText(body.getCar_model());
-        tv_type.setText(body.getCar_type());
-        Picasso.with(activity).load(Tags.IMAGE_URL+body.getCar_image()).fit().into(imagecar);
-        Picasso.with(activity).load(Tags.IMAGE_URL+body.getForm_image()).fit().into(imageform);
+        tv_name.setText(body.getFrom_user_name());
+        tv_time.setText(body.getApppoiment());
+        tv_quantity.setText(body.getAmount());
+
+        tv_desc.setText(body.getAmount_desc());
+        tv_from.setText(body.getFrom_address());
+        tv_to.setText(body.getTo_address());
 
     }
 
@@ -121,14 +117,12 @@ public class Fragment_Accept_Refues_insurance_Offer extends Fragment {
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(activity);
         back_arrow = view.findViewById(R.id.arrow);
-        tv_phone = view.findViewById(R.id.tv_phone);
-        tv_ownername = view.findViewById(R.id.tv_owner_name);
-        tv_idnum = view.findViewById(R.id.tv_idnume);
+        tv_name = view.findViewById(R.id.tv_name);
         tv_time = view.findViewById(R.id.tv_time);
-        tv_model = view.findViewById(R.id.tv_model);
-        tv_type = view.findViewById(R.id.tv_type);
-        imagecar = view.findViewById(R.id.image_car);
-        imageform = view.findViewById(R.id.image_form);
+        tv_quantity = view.findViewById(R.id.tv_quantity);
+        tv_desc = view.findViewById(R.id.tv_desc);
+        tv_from = view.findViewById(R.id.tv_from);
+        tv_to = view.findViewById(R.id.tv_to);
         tv_offer = view.findViewById(R.id.tv_offer);
         bt_accept = view.findViewById(R.id.btn_send);
         bt_refues = view.findViewById(R.id.btn_refuse);
