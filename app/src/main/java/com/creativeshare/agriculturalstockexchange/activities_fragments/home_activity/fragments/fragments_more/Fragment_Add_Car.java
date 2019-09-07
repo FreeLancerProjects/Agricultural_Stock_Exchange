@@ -275,6 +275,8 @@ sp_cat.setAdapter(spinner_catogry_adapter);
 
     private void checkdata() {
        // String manuf = edt_manufc.getText().toString();
+        Common.CloseKeyBoard(homeActivity,edt_phone);
+
         String responsilble = edt_responsible.getText().toString();
         String colors = edt_color.getText().toString();
         String platenum = edt_platenume.getText().toString();

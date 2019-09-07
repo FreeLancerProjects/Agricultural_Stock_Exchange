@@ -242,7 +242,9 @@ view2=view.findViewById(R.id.view2);
     }
 
    private void checkdata() {
-        String quantity = edt_quantity.getText().toString();
+       Common.CloseKeyBoard(homeActivity,edt_desc);
+
+       String quantity = edt_quantity.getText().toString();
         String time=
                 tv_time.getText().toString();
         String decc=edt_desc.getText().toString();
